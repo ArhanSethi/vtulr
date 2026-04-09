@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virginia Tech Undergraduate Law Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --maroon: #861F41;
+      --ink: #1a1a1a;
+      --ink-muted: #4a4a4a;
+      --ink-light: #7a7a7a;
+      --rule: #c8b8a2;
+      --rule-light: #e8e0d5;
+      --cream: #faf8f4;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 640px;
+      text-align: center;
+    }
+
+    /* Seal */
+    .seal {
+      width: 64px;
+      height: 64px;
+      border: 1.5px solid var(--maroon);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+    }
+
+    /* Top rule */
+    .rule-triple {
+      width: 80px;
+      margin: 0 auto 2.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .rule-triple span:nth-child(1),
+    .rule-triple span:nth-child(3) { display: block; height: 1px; background: var(--rule); }
+    .rule-triple span:nth-child(2) { display: block; height: 2px; background: var(--maroon); }
+
+    /* Institution */
+    .institution {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    /* Title */
+    .title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      font-size: 2.6rem;
+      line-height: 1.15;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+      margin-bottom: 0.3rem;
+    }
+
+    .title strong {
+      font-weight: 600;
+      color: var(--maroon);
+    }
+
+    /* Divider */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--rule);
+      margin: 1.8rem auto;
+    }
+
+    /* Body text */
+    .body-text {
+      font-size: 1.08rem;
+      color: var(--ink-muted);
+      line-height: 1.8;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Contact line */
+    .contact-line {
+      font-size: 1rem;
+      color: var(--ink-muted);
+      line-height: 1.8;
+      margin-top: 1.4rem;
+    }
+
+    .contact-label {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-line a {
+      color: var(--maroon);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(134, 31, 65, 0.3);
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+
+    .contact-line a:hover {
+      border-color: var(--maroon);
+    }
+
+    /* Footer */
+    .footer-note {
+      margin-top: 3rem;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rule);
+    }
+
+    .disclaimer {
+      margin-top: 1.2rem;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.68rem;
+      color: var(--ink-light);
+      line-height: 1.7;
+      border-top: 1px solid var(--rule-light);
+      padding-top: 1.2rem;
+    }
+
+    .disclaimer a {
+      color: var(--ink-light);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="seal">
+      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+        <text x="17" y="23" text-anchor="middle" font-family="EB Garamond, Georgia, serif" font-size="15" font-weight="600" fill="#861F41">VT</text>
+      </svg>
+    </div>
+
+    <div class="institution">Virginia Tech</div>
+
+    <h1 class="title">Undergraduate<br><strong>Law Review</strong></h1>
+
+    <div class="rule-triple">
+      <span></span><span></span><span></span>
+    </div>
+
+    <p class="body-text">
+      Virginia Tech&rsquo;s first undergraduate law review is forthcoming. We are a student-run publication dedicated to rigorous legal scholarship, providing undergraduates a venue to engage seriously with questions of law and policy.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="contact-line">
+      <span class="contact-label">Get Involved</span>
+      Interested in joining or submitting?<br />
+      Reach us at <a href="mailto:tiya@vtulr.org">tiya@vtulr.org</a> or <a href="mailto:catherina@vtulr.org">catherina@vtulr.org</a>
+    </div>
+
+    <div class="footer-note">Blacksburg, Virginia &nbsp;&middot;&nbsp; Virginia Polytechnic Institute and State University</div>
+
+    <div class="disclaimer">
+      This publication is produced by students at Virginia Polytechnic Institute and State University. Virginia Tech is not responsible for its contents. For questions or inquiries, contact <a href="mailto:tiya@vtulr.org">tiya@vtulr.org</a> or <a href="mailto:catherina@vtulr.org">catherina@vtulr.org</a>.
+    </div>
+
+  </div>
+
+</body>
+</html>
