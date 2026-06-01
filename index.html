@@ -6,206 +6,712 @@
   <title>Virginia Tech Undergraduate Law Review</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --maroon: #861F41;
-      --ink: #1a1a1a;
-      --ink-muted: #4a4a4a;
-      --ink-light: #7a7a7a;
-      --rule: #c8b8a2;
-      --rule-light: #e8e0d5;
-      --cream: #faf8f4;
-    }
-
-    html, body {
-      height: 100%;
+      --maroon-dark: #6e1a36;
+      --black: #111111;
+      --text: #222222;
+      --muted: #666666;
+      --light: #999999;
+      --border: #dddddd;
+      --offwhite: #f7f7f5;
     }
 
     body {
-      font-family: 'EB Garamond', Georgia, serif;
-      background: var(--cream);
-      color: var(--ink);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 2rem;
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      background: #fff;
     }
 
-    .page {
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      display: inline-block;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-solid { background: #fff; color: var(--maroon); }
+    .btn-ghost { background: transparent; border: 1px solid rgba(255,255,255,0.5); color: #fff; }
+    .btn-maroon { background: var(--maroon); color: #fff; }
+    .btn-maroon:hover { background: var(--maroon-dark); }
+
+    /* ── NAV ── */
+    nav {
       width: 100%;
-      max-width: 640px;
+      height: 96px;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      height: 72px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo svg {
+      height: 72px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      list-style: none;
+      height: 100%;
+    }
+
+    .nav-links > li {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links > li > a {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 100%;
+      white-space: nowrap;
+    }
+
+    .nav-links > li > a:hover { color: var(--maroon); }
+
+    .nav-caret {
+      font-size: 0.55rem;
+      line-height: 1;
+      margin-top: 1px;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      border-top: 2px solid var(--maroon);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      min-width: 180px;
+      list-style: none;
+      z-index: 200;
+    }
+
+    .nav-links > li:hover .dropdown { display: block; }
+
+    .dropdown li a {
+      display: block;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      padding: 12px 18px;
+      white-space: nowrap;
+    }
+
+    .dropdown li a:hover { color: var(--maroon); background: var(--offwhite); }
+
+    /* ── HERO ── */
+    .section-hero {
+      width: 100%;
+      background-color: #1a0810;
+      background-image: url('hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero-overlay {
+      background: linear-gradient(to bottom, rgba(15,5,10,0.45), rgba(15,5,10,0.72));
+      padding: 80px 64px 72px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2.6rem, 5.5vw, 5.2rem);
+      color: #fff;
+      max-width: 900px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+      color: rgba(255,255,255,0.9);
+      max-width: 820px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    /* ── BOARD ── */
+    .section-board {
+      background: #fff;
+      padding: 72px 0 80px;
       text-align: center;
     }
 
-    /* Seal */
-    .seal {
-      width: 64px;
-      height: 64px;
-      border: 1.5px solid var(--maroon);
-      border-radius: 50%;
+    .board-photo-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .board-photo {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      background: var(--offwhite);
+    }
+
+    .board-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--offwhite);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 2rem;
-    }
-
-    /* Top rule */
-    .rule-triple {
-      width: 80px;
-      margin: 0 auto 2.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-    .rule-triple span:nth-child(1),
-    .rule-triple span:nth-child(3) { display: block; height: 1px; background: var(--rule); }
-    .rule-triple span:nth-child(2) { display: block; height: 2px; background: var(--maroon); }
-
-    /* Institution */
-    .institution {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--maroon);
-      font-weight: 600;
-      margin-bottom: 0.6rem;
-    }
-
-    /* Title */
-    .title {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 300;
-      font-size: 2.6rem;
-      line-height: 1.15;
-      color: var(--ink);
-      letter-spacing: 0.01em;
-      margin-bottom: 0.3rem;
-    }
-
-    .title strong {
-      font-weight: 600;
-      color: var(--maroon);
-    }
-
-    /* Divider */
-    .divider {
-      width: 40px;
-      height: 1px;
-      background: var(--rule);
-      margin: 1.8rem auto;
-    }
-
-    /* Body text */
-    .body-text {
-      font-size: 1.08rem;
-      color: var(--ink-muted);
-      line-height: 1.8;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Contact line */
-    .contact-line {
-      font-size: 1rem;
-      color: var(--ink-muted);
-      line-height: 1.8;
-      margin-top: 1.4rem;
-    }
-
-    .contact-label {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .contact-line a {
-      color: var(--maroon);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(134, 31, 65, 0.3);
-      padding-bottom: 1px;
-      transition: border-color 0.15s;
-    }
-
-    .contact-line a:hover {
-      border-color: var(--maroon);
-    }
-
-    /* Footer */
-    .footer-note {
-      margin-top: 3rem;
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.62rem;
+      color: var(--light);
+      font-size: 0.8rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--rule);
     }
 
-    .disclaimer {
-      margin-top: 1.2rem;
-      font-family: 'Source Sans 3', sans-serif;
+    .board-label {
+      margin-top: 14px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--maroon);
+    }
+
+    /* ── FEATURED WORKS ── */
+    .section-featured {
+      background: var(--offwhite);
+      padding: 80px 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 40px;
+    }
+
+    .section-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .section-link {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--maroon);
+      text-decoration: none;
+    }
+
+    .section-link:hover { text-decoration: underline; }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .media-card {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .media-card-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .media-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-card-thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      background: #e8e8e8;
+    }
+
+    .media-card-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--maroon);
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+    }
+
+    .media-card-body {
+      padding: 20px 20px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .media-card-kicker {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 8px;
+    }
+
+    .media-card-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text);
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+
+    .media-card-title:hover { color: var(--maroon); }
+
+    .media-card-excerpt {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    /* ── JOIN ── */
+    .section-join {
+      background: #fff;
+      padding: 80px 0;
+    }
+
+    .join-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .join-left { flex: 1; }
+
+    .join-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .join-body {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 18px;
+      max-width: 520px;
+    }
+
+    .join-contacts {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .join-contacts a {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--maroon);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+
+    .join-contacts a:hover { text-decoration: underline; }
+
+    .join-right { flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: #fff;
+    }
+
+    .footer-contact-row {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 28px 0;
+    }
+
+    .footer-contact-inner {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .footer-contact-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      flex-shrink: 0;
+    }
+
+    .footer-contact-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-contact-links a {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+    }
+
+    .footer-contact-links a:hover { color: #fff; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      padding: 48px 0 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-col-title {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-brand-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .footer-brand-sub {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .footer-col-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col-links a {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+    }
+
+    .footer-col-links a:hover { color: #fff; }
+
+    .footer-bottom {
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-copyright {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-disclaimer {
+      font-family: 'Lato', sans-serif;
       font-size: 0.68rem;
-      color: var(--ink-light);
-      line-height: 1.7;
-      border-top: 1px solid var(--rule-light);
-      padding-top: 1.2rem;
+      color: rgba(255,255,255,0.28);
+      line-height: 1.65;
+      max-width: 700px;
     }
 
-    .disclaimer a {
-      color: var(--ink-light);
-      text-decoration: underline;
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .media-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .join-inner { flex-direction: column; align-items: flex-start; }
     }
 
-    @media (max-width: 480px) {
-      .title { font-size: 2rem; }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+
+      .hero-overlay { padding: 56px 24px 48px; }
+
+      .hero-title { font-size: 2rem; }
+
+      .media-grid { grid-template-columns: 1fr; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+
+      .container { padding: 0 20px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="page">
-
-    <div class="seal">
-      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
-        <text x="17" y="23" text-anchor="middle" font-family="EB Garamond, Georgia, serif" font-size="15" font-weight="600" fill="#861F41">VT</text>
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo" aria-label="VTULR Home">
+      <svg viewBox="0 0 220 72" fill="none" xmlns="http://www.w3.org/2000/svg" height="72">
+        <!-- Inline logo: wordmark fallback until Group_7.svg is swapped in -->
+        <text x="0" y="48" font-family="'Playfair Display', Georgia, serif" font-size="36" font-weight="700" fill="#861F41">VTULR</text>
+        <text x="2" y="64" font-family="'Lato', sans-serif" font-size="9" font-weight="700" letter-spacing="2.5" fill="#666666">VIRGINIA TECH</text>
       </svg>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/publication">Publication</a></li>
+      <li><a href="/interviews">Interviews</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li>
+        <a href="/join">Get Involved <span class="nav-caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="/join">Join Us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/submit">Submit an Article</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="/about">About <span class="nav-caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="/about">Who We Are</a></li>
+          <li><a href="/masthead">Masthead</a></li>
+          <li><a href="/partners">Partners</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="section-hero">
+    <div class="hero-overlay">
+      <h1 class="hero-title">Virginia Tech Undergraduate Law Review</h1>
+      <p class="hero-sub">VTULR is Virginia Tech's premier undergraduate legal publication. VTULR advances legal discourse by publishing print journals covering an array of legal subjects. We seek to promote original and authentic legal scholarship.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="/publication" class="btn btn-solid">Read Our Journal</a>
+        <a href="/join" class="btn btn-ghost">Get Involved</a>
+      </div>
     </div>
+  </section>
 
-    <div class="institution">Virginia Tech</div>
-
-    <h1 class="title">Undergraduate<br><strong>Law Review</strong></h1>
-
-    <div class="rule-triple">
-      <span></span><span></span><span></span>
+  <!-- BOARD PHOTO -->
+  <section class="section-board">
+    <div class="board-photo-wrap">
+      <div class="board-photo-placeholder">
+        <!-- Swap with: <img class="board-photo" src="board.jpg" alt="2026 Executive Board" /> -->
+        Board photo coming soon
+      </div>
+      <p class="board-label">2026 Executive Board</p>
     </div>
+  </section>
 
-    <p class="body-text">
-      Virginia Tech&rsquo;s first undergraduate law review is forthcoming. We are a student-run publication dedicated to rigorous legal scholarship, providing undergraduates a venue to engage seriously with questions of law and policy.
-    </p>
+  <!-- FEATURED WORKS -->
+  <section class="section-featured">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Selected Works</span>
+        <a href="/publication" class="section-link">View All →</a>
+      </div>
 
-    <div class="divider"></div>
+      <div class="media-grid">
 
-    <div class="contact-line">
-      <span class="contact-label">Get Involved</span>
-      Interested in joining or submitting?<br />
-      Reach us at <a href="mailto:tiya@vtulr.org">tiya@vtulr.org</a> or <a href="mailto:catherina@vtulr.org">catherina@vtulr.org</a>
+        <!-- Card 1: Article -->
+        <article class="media-card">
+          <div class="media-card-thumb">
+            <div class="media-card-thumb-placeholder"></div>
+            <span class="media-card-tag">Article</span>
+          </div>
+          <div class="media-card-body">
+            <div class="media-card-kicker">Constitutional Law</div>
+            <a href="/publication" class="media-card-title">The Evolving Standard of Judicial Review in Administrative Rulemaking</a>
+            <p class="media-card-excerpt">An examination of how courts have progressively reshaped the boundaries of Chevron deference and its implications for federal agency authority.</p>
+          </div>
+        </article>
+
+        <!-- Card 2: Interview -->
+        <article class="media-card">
+          <div class="media-card-thumb">
+            <div class="media-card-thumb-placeholder"></div>
+            <span class="media-card-tag">Interview</span>
+          </div>
+          <div class="media-card-body">
+            <div class="media-card-kicker">Criminal Justice</div>
+            <a href="/interviews" class="media-card-title">A Conversation on Prosecutorial Discretion and Systemic Reform</a>
+            <p class="media-card-excerpt">We sat down with a former public defender to discuss the structural pressures that shape charging decisions and what meaningful reform might look like.</p>
+          </div>
+        </article>
+
+        <!-- Card 3: Blog -->
+        <article class="media-card">
+          <div class="media-card-thumb">
+            <div class="media-card-thumb-placeholder"></div>
+            <span class="media-card-tag">Blog</span>
+          </div>
+          <div class="media-card-body">
+            <div class="media-card-kicker">Technology &amp; Law</div>
+            <a href="/blog" class="media-card-title">Regulating Artificial Intelligence: A Legislative Landscape in Flux</a>
+            <p class="media-card-excerpt">State legislatures and Congress are moving at different speeds on AI policy. We map the current regulatory terrain and identify key fault lines ahead.</p>
+          </div>
+        </article>
+
+      </div>
     </div>
+  </section>
 
-    <div class="footer-note">Blacksburg, Virginia &nbsp;&middot;&nbsp; Virginia Polytechnic Institute and State University</div>
-
-    <div class="disclaimer">
-      This publication is produced by students at Virginia Polytechnic Institute and State University. Virginia Tech is not responsible for its contents. For questions or inquiries, contact <a href="mailto:tiya@vtulr.org">tiya@vtulr.org</a> or <a href="mailto:catherina@vtulr.org">catherina@vtulr.org</a>.
+  <!-- JOIN -->
+  <section class="section-join">
+    <div class="container">
+      <div class="join-inner">
+        <div class="join-left">
+          <h2 class="join-heading">Interested? Join us.</h2>
+          <p class="join-body">VTULR welcomes undergraduate students at Virginia Tech who are passionate about law, policy, and scholarship. Whether you want to write, edit, or lead, there is a place for you on our team.</p>
+          <div class="join-contacts">
+            <a href="mailto:tiya@vtulr.org">tiya@vtulr.org</a>
+            <a href="mailto:catherina@vtulr.org">catherina@vtulr.org</a>
+          </div>
+        </div>
+        <div class="join-right">
+          <a href="/join" class="btn btn-maroon">Get Involved</a>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-contact-row">
+        <div class="footer-contact-inner">
+          <span class="footer-contact-label">Contact</span>
+          <div class="footer-contact-links">
+            <a href="mailto:tiya@vtulr.org">tiya@vtulr.org</a>
+            <a href="mailto:catherina@vtulr.org">catherina@vtulr.org</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Virginia Tech<br>Undergraduate Law Review</div>
+          <p class="footer-brand-sub">Blacksburg, Virginia<br>Virginia Polytechnic Institute<br>and State University</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Publication</div>
+          <ul class="footer-col-links">
+            <li><a href="/publication">Journal</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Get Involved</div>
+          <ul class="footer-col-links">
+            <li><a href="/join">Join Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/submit">Submit an Article</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">About</div>
+          <ul class="footer-col-links">
+            <li><a href="/about">Who We Are</a></li>
+            <li><a href="/masthead">Masthead</a></li>
+            <li><a href="/partners">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 Virginia Tech Undergraduate Law Review. All rights reserved.</p>
+        <p class="footer-disclaimer">This publication is produced by students at Virginia Polytechnic Institute and State University. Virginia Tech is not responsible for its contents. For questions or business inquiries, contact tiya@vtulr.org or catherina@vtulr.org.</p>
+      </div>
+
+    </div>
+  </footer>
 
 </body>
 </html>
