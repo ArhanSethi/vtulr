@@ -153,6 +153,8 @@
     /* ── HERO ── */
     .section-hero {
       width: 100%;
+      max-width: 100%;
+      overflow: hidden;
       background-color: #3d0a1e;
       background-image: url('hero-bg.jpg');
       background-size: cover;
@@ -164,15 +166,22 @@
       background: rgba(100, 15, 45, 0.62);
       padding: 220px 64px 380px;
       text-align: center;
+      box-sizing: border-box;
+      max-width: 100%;
     }
 
     .hero-title {
       font-family: 'Newsreader', Georgia, serif;
       font-weight: 700;
       font-variation-settings: 'opsz' 72, 'wght' 700;
-      font-size: clamp(1rem, calc((100vw - 128px) / 19), 80px);
+      font-size: clamp(2rem, 4vw, 3.8rem);
       color: #fff;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      max-width: 100%;
       line-height: 1.05;
       margin-bottom: 28px;
     }
