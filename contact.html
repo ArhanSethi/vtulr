@@ -126,14 +126,46 @@
     .footer-disclaimer { font-family: 'Lato', sans-serif; font-size: 0.68rem; color: rgba(255,255,255,0.28); line-height: 1.65; max-width: 700px; }
 
     @media (max-width: 860px) {
-      .two-col { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .two-col-submit { grid-template-columns: 1fr !important; }
+      .partners-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .media-grid { grid-template-columns: repeat(2, 1fr); }
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .page-header-inner { grid-template-columns: 1fr; gap: 32px; }
+      .article-wrap { padding: 48px 24px; }
+      .sticky-col { position: static; }
+
     }
+
     @media (max-width: 600px) {
       .nav-links { display: none; }
-      .container { padding: 0 20px; }
+      .nav-hamburger { display: flex; }
+      .container { padding: 0 16px; }
       .page-title { font-size: 2.2rem; }
+      .page-header { padding: 32px 0 24px; }
+      .media-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .partners-grid { grid-template-columns: 1fr !important; }
       .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid { gap: 24px; }
+      .hero-overlay { padding: 60px 16px 200px; }
+      .board-photo-wrap { margin-top: -120px; padding: 0 16px; }
+      .join-inner { flex-direction: column; align-items: flex-start; gap: 32px; }
+      .post-wrap { padding: 40px 16px; }
+      .post-title { font-size: 2rem; }
+      .blog-grid { gap: 32px; }
+      .page-header-inner { gap: 24px; }
+      .section-join { padding: 48px 0; }
+      .section-featured { padding: 48px 0; }
+
+    }
+
+    @media (max-width: 400px) {
+      .page-title { font-size: 1.9rem; }
+      .hero-title { font-size: 1.6rem !important; }
+      nav { padding: 0 16px; }
+
     }
   </style>
 </head>
@@ -191,6 +223,27 @@
       </li>
     </ul>
   </nav>
+
+  <!-- MOBILE NAV DRAWER -->
+  <div class="nav-drawer" id="nav-drawer">
+    <div class="nav-drawer-overlay" id="nav-drawer-overlay"></div>
+    <div class="nav-drawer-panel">
+      <button class="nav-drawer-close" id="nav-drawer-close" aria-label="Close menu">&times;</button>
+      <ul class="nav-drawer-links">
+        <li><a href="/publications">Publication</a></li>
+        <li><a href="/interviews">Interviews</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><span>Get Involved</span></li>
+        <li class="sub"><a href="/join">Join Us</a></li>
+        <li class="sub"><a href="/contact">Contact Us</a></li>
+        <li class="sub"><a href="/submit">Submit an Article</a></li>
+        <li><span>About</span></li>
+        <li class="sub"><a href="/about">Who We Are</a></li>
+        <li class="sub"><a href="/masthead">Masthead</a></li>
+        <li class="sub"><a href="/partners">Partners</a></li>
+      </ul>
+    </div>
+  </div>
 
   <div class="page-header">
     <div class="container">
