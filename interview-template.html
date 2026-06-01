@@ -13,6 +13,8 @@
 
     :root {
       --maroon: #861F41;
+      --orange: #E5751F;
+      --orange-dark: #c45e0e;
       --maroon-dark: #6e1a36;
       --black: #111111;
       --text: #222222;
@@ -187,7 +189,7 @@
     }
 
     /* ── FOOTER ── */
-    footer { background: var(--black); color: #fff; }
+    footer { background: var(--black); color: #fff; border-top: 3px solid var(--orange); }
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -295,7 +297,7 @@
       border-bottom: 1px solid var(--border);
     }
     .nav-drawer-links > li > span {
-      color: var(--maroon);
+      color: var(--orange);
       font-size: 0.65rem;
       letter-spacing: 0.2em;
       padding-top: 20px;

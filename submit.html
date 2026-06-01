@@ -12,7 +12,9 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --maroon: #861F41; --maroon-dark: #6e1a36; --black: #111111;
+      --maroon: #861F41;
+      --orange: #E5751F;
+      --orange-dark: #c45e0e; --maroon-dark: #6e1a36; --black: #111111;
       --text: #222222; --muted: #666666; --light: #999999;
       --border: #dddddd; --offwhite: #f7f7f5;
     }
@@ -86,7 +88,7 @@
       background: #861F41; color: #fff; border: none;
       padding: 14px; cursor: pointer; width: 100%; transition: background 0.15s;
     }
-    .form-submit:hover { background: #6e1a36; }
+    .form-submit:hover { background: var(--orange); }
     .form-check { display: flex; align-items: flex-start; gap: 10px; }
     .form-check input { margin-top: 3px; flex-shrink: 0; accent-color: #861F41; }
     .form-check label { font-family: 'Lato', sans-serif; font-size: 0.88rem; color: #444; line-height: 1.5; }
@@ -106,7 +108,7 @@
       font-variation-settings: 'opsz' 12, 'wght' 300; color: #888; margin-top: 8px; line-height: 1.6;
     }
 
-    footer { background: var(--black); color: #fff; }
+    footer { background: var(--black); color: #fff; border-top: 3px solid var(--orange); }
     .footer-grid {
       display: grid; grid-template-columns: repeat(4, 1fr);
       gap: 32px; padding: 48px 0 40px; border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -201,7 +203,7 @@
       border-bottom: 1px solid var(--border);
     }
     .nav-drawer-links > li > span {
-      color: var(--maroon);
+      color: var(--orange);
       font-size: 0.65rem;
       letter-spacing: 0.2em;
       padding-top: 20px;
@@ -308,7 +310,7 @@
         <ul class="dropdown">
           <li><a href="/join">Join Us</a></li>
           <li><a href="/contact">Contact Us</a></li>
-          <li><a href="/submit" style="border-bottom:2px solid #861F41;color:#861F41;">Submit an Article</a></li>
+          <li><a href="/submit" style="border-bottom:2px solid #E5751F;color:#E5751F;">Submit an Article</a></li>
         </ul>
       </li>
       <li>
