@@ -45,8 +45,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #fff;
-      border-bottom: 1px solid var(--border);
+      background: var(--orange);
+      border-bottom: none;
       position: relative;
       z-index: 100;
     }
@@ -77,7 +77,7 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--text);
+      color: #fff;
       text-decoration: none;
       padding: 0 14px;
       display: flex;
@@ -86,7 +86,7 @@
       height: 100%;
       white-space: nowrap;
     }
-    .nav-links > li > a:hover { color: var(--maroon); }
+    .nav-links > li > a:hover { color: var(--black); }
     .nav-caret { font-size: 0.55rem; line-height: 1; margin-top: 1px; }
     .dropdown {
       display: none;
@@ -275,7 +275,7 @@
       display: block;
       height: 2px;
       width: 100%;
-      background: var(--text);
+      background: #fff;
       transition: transform 0.2s, opacity 0.2s;
     }
     .nav-drawer {
@@ -430,7 +430,7 @@
 
     <ul class="nav-links">
       <li><a href="/publications">Publication</a></li>
-      <li><a href="/interviews" style="border-bottom:2px solid #E5751F;color:#E5751F;">Interviews</a></li>
+      <li><a href="/interviews" style="border-bottom:2px solid #fff;color:#fff;font-weight:700;">Interviews</a></li>
       <li><a href="/blog">Blog</a></li>
       <li>
         <a href="/join">Get Involved <span class="nav-caret">▾</span></a>
