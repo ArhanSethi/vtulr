@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>VTULR Admin</title>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --maroon:#861F41; --orange:#E5751F; --orange-dark:#c45e0e;
+      --text:#222; --muted:#666; --light:#999; --border:#ddd; --offwhite:#f7f7f5;
+    }
+    body { font-family:'Lato',sans-serif; color:var(--text); background:var(--offwhite); }
+    a { color:var(--maroon); }
+
+    /* top bar */
+    .admin-bar { background:var(--maroon); border-bottom:3px solid var(--orange); color:#fff; padding:0 24px; height:64px; display:flex; align-items:center; justify-content:space-between; }
+    .admin-bar h1 { font-family:'Newsreader',Georgia,serif; font-weight:500; font-size:1.1rem; letter-spacing:.02em; }
+    .admin-bar .logout { font-family:'Lato',sans-serif; font-size:0.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#fff; background:rgba(255,255,255,0.15); border:none; padding:8px 16px; cursor:pointer; }
+    .admin-bar .logout:hover { background:rgba(255,255,255,0.28); }
+
+    .wrap { max-width:1180px; margin:0 auto; padding:32px 24px 80px; }
+
+    /* login */
+    .login-card { max-width:380px; margin:90px auto; background:#fff; border:1px solid var(--border); padding:40px 36px; }
+    .login-card h2 { font-family:'Newsreader',Georgia,serif; font-weight:400; font-size:1.6rem; color:#111; margin-bottom:6px; }
+    .login-card p { font-size:0.85rem; color:var(--muted); margin-bottom:24px; }
+    .login-err { background:#fbe9ec; color:var(--maroon); font-size:0.8rem; padding:10px 12px; margin-bottom:16px; display:none; }
+
+    label { display:block; font-family:'Lato',sans-serif; font-size:0.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#444; margin-bottom:6px; }
+    input[type=text], input[type=password], input[type=email], textarea, select {
+      width:100%; font-family:'Lato',sans-serif; font-size:0.95rem; color:#222;
+      border:1px solid var(--border); padding:10px 12px; background:#fff; outline:none;
+    }
+    input:focus, textarea:focus, select:focus { border-color:var(--maroon); }
+    textarea { resize:vertical; }
+    .field { margin-bottom:18px; }
+    .hint { font-size:0.75rem; color:var(--light); margin-top:5px; line-height:1.5; }
+
+    .btn { font-family:'Lato',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; border:none; padding:13px 22px; cursor:pointer; }
+    .btn-maroon { background:var(--maroon); color:#fff; } .btn-maroon:hover { background:var(--orange); }
+    .btn-orange { background:var(--orange); color:#fff; } .btn-orange:hover { background:var(--orange-dark); }
+    .btn-ghost { background:#fff; color:var(--maroon); border:1px solid var(--maroon); } .btn-ghost:hover { background:var(--offwhite); }
+    .btn-full { width:100%; }
+    .btn-sm { font-size:0.62rem; padding:7px 12px; }
+
+    /* editor layout */
+    .editor-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+    .panel { background:#fff; border:1px solid var(--border); padding:28px; }
+    .panel h3 { font-family:'Newsreader',Georgia,serif; font-weight:400; font-size:1.3rem; color:#111; margin-bottom:4px; }
+    .panel .sub { font-size:0.82rem; color:var(--muted); margin-bottom:22px; }
+
+    .cover-preview { width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--offwhite); border:1px dashed var(--border); display:block; margin-top:8px; }
+
+    .fn-row { display:flex; gap:8px; margin-bottom:8px; align-items:flex-start; }
+    .fn-num { flex:0 0 28px; height:38px; display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--maroon); font-size:0.85rem; }
+    .fn-row textarea { flex:1; min-height:38px; }
+    .fn-del { flex:0 0 auto; }
+
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+    .status { font-size:0.82rem; padding:12px 14px; margin-top:16px; display:none; }
+    .status.ok { background:#e9f6ec; color:#1f6b34; display:block; }
+    .status.warn { background:#fff4e5; color:#8a4b00; display:block; }
+
+    /* preview pane reuses article styles */
+    .preview-box { border:1px solid var(--border); background:#fff; padding:36px 32px; max-height:720px; overflow:auto; }
+    .preview-box .article-title { font-family:'Newsreader',Georgia,serif; font-size:2rem; font-weight:400; color:#111; text-align:center; line-height:1.2; margin-bottom:14px; }
+    .preview-box .article-byline { font-family:'Lato',sans-serif; font-style:italic; font-size:0.9rem; color:#888; text-align:center; margin-bottom:28px; }
+    .preview-box .article-cover { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; margin:0 auto 28px; background:#e8e4df; }
+    .preview-box .article-body { font-family:'Newsreader',Georgia,serif; }
+    .preview-box .article-body p { font-size:1.02rem; color:#222; line-height:1.7; margin-bottom:1.1rem; text-align:justify; }
+    .preview-box .article-body em, .preview-box .footnotes li em { font-style:italic; }
+    .preview-box sup.fn-ref a { color:var(--maroon); text-decoration:none; font-weight:700; }
+    .preview-box .footnotes { margin-top:32px; }
+    .preview-box .footnotes hr { border:none; border-top:1px solid var(--border); margin-bottom:16px; }
+    .preview-box .footnotes-title { font-family:'Lato',sans-serif; font-size:0.62rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+    .preview-box .footnotes ol { padding-left:1.4em; }
+    .preview-box .footnotes li { font-family:'Newsreader',Georgia,serif; font-size:0.85rem; color:#555; line-height:1.6; margin-bottom:10px; }
+    .preview-box .fn-back { color:var(--maroon); text-decoration:none; margin-left:4px; }
+
+    /* published list */
+    .pub-list { margin-top:14px; }
+    .pub-item { display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid var(--border); }
+    .pub-thumb { width:80px; height:46px; object-fit:cover; background:var(--offwhite); flex-shrink:0; }
+    .pub-meta { flex:1; min-width:0; }
+    .pub-title { font-family:'Newsreader',Georgia,serif; font-size:1rem; color:#111; line-height:1.25; }
+    .pub-author { font-size:0.76rem; color:var(--muted); margin-top:2px; }
+    .pub-actions { display:flex; gap:8px; flex-shrink:0; }
+    .pub-empty { font-size:0.85rem; color:var(--light); font-style:italic; padding:14px 0; }
+
+    .section-title { font-family:'Newsreader',Georgia,serif; font-weight:400; font-size:1.5rem; color:#111; margin:40px 0 6px; }
+    .section-desc { font-size:0.85rem; color:var(--muted); margin-bottom:18px; }
+
+    .download-bar { background:#fff; border:1px solid var(--border); border-left:4px solid var(--orange); padding:20px 22px; margin-top:28px; }
+    .download-bar p { font-size:0.85rem; color:var(--muted); line-height:1.6; margin-bottom:14px; }
+    .download-bar strong { color:var(--text); }
+
+    @media (max-width:880px){ .editor-grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN VIEW -->
+  <div id="login-view">
+    <div class="login-card">
+      <h2>VTULR Admin</h2>
+      <p>Sign in to manage blog posts.</p>
+      <div class="login-err" id="login-err">Incorrect username or password.</div>
+      <form id="login-form">
+        <div class="field">
+          <label for="u">Username</label>
+          <input type="text" id="u" autocomplete="username" autofocus>
+        </div>
+        <div class="field">
+          <label for="p">Password</label>
+          <input type="password" id="p" autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-maroon btn-full">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN VIEW -->
+  <div id="admin-view" style="display:none;">
+    <div class="admin-bar">
+      <h1>VTULR Admin · Blog</h1>
+      <button class="logout" id="logout-btn">Log Out</button>
+    </div>
+
+    <div class="wrap">
+
+      <div class="editor-grid">
+        <!-- LEFT: editor -->
+        <div class="panel">
+          <h3 id="editor-heading">New Article</h3>
+          <p class="sub">Fields marked * are required. Use <strong>[1]</strong>, <strong>[2]</strong> in the body for footnote markers and <strong>*text*</strong> for italics.</p>
+
+          <div class="field">
+            <label for="f-title">Title *</label>
+            <input type="text" id="f-title" placeholder="Article title">
+          </div>
+
+          <div class="field">
+            <label for="f-slug">Slug (URL) *</label>
+            <input type="text" id="f-slug" placeholder="auto-generated-from-title">
+            <p class="hint">The article will live at <span id="slug-preview">/blog/post.html?slug=…</span></p>
+          </div>
+
+          <div class="field">
+            <label for="f-author">Author *</label>
+            <input type="text" id="f-author" placeholder="First Last">
+          </div>
+
+          <div class="field">
+            <label for="f-cover">Cover Image</label>
+            <input type="file" id="f-cover" accept="image/*">
+            <img id="cover-preview" class="cover-preview" alt="" style="display:none;">
+            <p class="hint">Resized &amp; compressed automatically. 16:9 looks best.</p>
+          </div>
+
+          <div class="field">
+            <label for="f-body">Body *</label>
+            <textarea id="f-body" rows="12" placeholder="Write the article. Separate paragraphs with a blank line.&#10;&#10;Add footnote markers like this.[1] Italicize case names like *Marbury v. Madison*.[2]"></textarea>
+          </div>
+
+          <div class="field">
+            <label>Footnotes</label>
+            <div id="fn-list"></div>
+            <button type="button" class="btn btn-ghost btn-sm" id="fn-add">+ Add Footnote</button>
+            <p class="hint">Footnote numbers auto-match the [n] markers in the body order.</p>
+          </div>
+
+          <div class="actions">
+            <button type="button" class="btn btn-maroon" id="save-btn">Save Article</button>
+            <button type="button" class="btn btn-ghost" id="reset-btn">Clear Form</button>
+          </div>
+          <div class="status" id="form-status"></div>
+        </div>
+
+        <!-- RIGHT: live preview -->
+        <div class="panel">
+          <h3>Live Preview</h3>
+          <p class="sub">How the article will render.</p>
+          <div class="preview-box" id="preview-box"></div>
+        </div>
+      </div>
+
+      <!-- PUBLISHED LIST -->
+      <h2 class="section-title">Published Articles</h2>
+      <p class="section-desc">Saved articles in your working copy. Edit or delete, then download to publish your changes.</p>
+      <div class="pub-list" id="pub-list"></div>
+
+      <!-- DOWNLOAD / PUBLISH -->
+      <div class="download-bar">
+        <p><strong>Publishing is git-based.</strong> Your changes live in this browser until you download <code>blog-data.js</code> and commit it to the repository. Once committed &amp; pushed, the posts go live for everyone.</p>
+        <button type="button" class="btn btn-orange" id="download-btn">Download blog-data.js</button>
+        <div class="status" id="download-status"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/blog-data.js"></script>
+  <script src="/blog-render.js"></script>
+  <script>
+  (function(){
+    'use strict';
+    var USER = 'ajswebmaster', PASS = 'vtulr2026';
+
+    // ---- auth (session-only, in memory) ----
+    var authed = false;
+    var loginView = document.getElementById('login-view');
+    var adminView = document.getElementById('admin-view');
+    document.getElementById('login-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var u = document.getElementById('u').value.trim();
+      var p = document.getElementById('p').value;
+      if(u === USER && p === PASS){
+        authed = true;
+        loginView.style.display = 'none';
+        adminView.style.display = 'block';
+        init();
+      } else {
+        document.getElementById('login-err').style.display = 'block';
+      }
+    });
+    document.getElementById('logout-btn').addEventListener('click', function(){
+      authed = false;
+      adminView.style.display = 'none';
+      loginView.style.display = 'block';
+      document.getElementById('p').value = '';
+    });
+
+    // ---- working copy of posts ----
+    var posts = (window.BLOG_POSTS || []).map(function(p){ return JSON.parse(JSON.stringify(p)); });
+    var editingSlug = null; // slug currently being edited, or null for new
+
+    var elTitle = document.getElementById('f-title');
+    var elSlug = document.getElementById('f-slug');
+    var elAuthor = document.getElementById('f-author');
+    var elBody = document.getElementById('f-body');
+    var elCover = document.getElementById('f-cover');
+    var coverPreview = document.getElementById('cover-preview');
+    var fnList = document.getElementById('fn-list');
+    var slugTouched = false;
+    var currentImage = '';
+
+    function slugify(s){
+      return s.toLowerCase().trim()
+        .replace(/['"]/g,'')
+        .replace(/[^a-z0-9]+/g,'-')
+        .replace(/^-+|-+$/g,'');
+    }
+
+    function init(){
+      renderFootnoteRows([]);
+      renderPubList();
+      updatePreview();
+    }
+
+    // slug auto from title unless user edits slug
+    elTitle.addEventListener('input', function(){
+      if(!slugTouched){ elSlug.value = slugify(elTitle.value); updateSlugPreview(); }
+      updatePreview();
+    });
+    elSlug.addEventListener('input', function(){ slugTouched = true; elSlug.value = slugify(elSlug.value); updateSlugPreview(); });
+    elAuthor.addEventListener('input', updatePreview);
+    elBody.addEventListener('input', updatePreview);
+
+    function updateSlugPreview(){
+      var s = elSlug.value || '…';
+      document.getElementById('slug-preview').textContent = '/blog/post.html?slug=' + s;
+    }
+
+    // ---- cover image: compress to base64 ----
+    elCover.addEventListener('change', function(){
+      var file = elCover.files[0];
+      if(!file) return;
+      var reader = new FileReader();
+      reader.onload = function(ev){
+        var img = new Image();
+        img.onload = function(){
+          var maxW = 1400;
+          var scale = Math.min(1, maxW / img.width);
+          var w = Math.round(img.width * scale);
+          var h = Math.round(img.height * scale);
+          var canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+          currentImage = canvas.toDataURL('image/jpeg', 0.82);
+          coverPreview.src = currentImage;
+          coverPreview.style.display = 'block';
+          updatePreview();
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // ---- footnotes UI ----
+    function renderFootnoteRows(arr){
+      fnList.innerHTML = '';
+      arr.forEach(function(fn){ addFootnoteRow(fn.text); });
+    }
+    function addFootnoteRow(text){
+      var row = document.createElement('div');
+      row.className = 'fn-row';
+      var num = document.createElement('div');
+      num.className = 'fn-num';
+      var ta = document.createElement('textarea');
+      ta.rows = 1; ta.value = text || '';
+      ta.placeholder = 'Citation text';
+      ta.addEventListener('input', updatePreview);
+      var del = document.createElement('button');
+      del.type = 'button'; del.className = 'btn btn-ghost btn-sm fn-del'; del.textContent = '✕';
+      del.addEventListener('click', function(){ row.remove(); renumber(); updatePreview(); });
+      row.appendChild(num); row.appendChild(ta); row.appendChild(del);
+      fnList.appendChild(row);
+      renumber();
+    }
+    function renumber(){
+      Array.prototype.forEach.call(fnList.querySelectorAll('.fn-row'), function(r,i){
+        r.querySelector('.fn-num').textContent = '[' + (i+1) + ']';
+      });
+    }
+    function collectFootnotes(){
+      return Array.prototype.map.call(fnList.querySelectorAll('.fn-row textarea'), function(ta,i){
+        return { n: i+1, text: ta.value };
+      }).filter(function(fn){ return fn.text.trim().length > 0; });
+    }
+    document.getElementById('fn-add').addEventListener('click', function(){ addFootnoteRow(''); });
+
+    // ---- preview ----
+    function currentArticle(){
+      return {
+        slug: elSlug.value,
+        title: elTitle.value || 'Untitled',
+        author: elAuthor.value || 'Author',
+        image: currentImage,
+        body: elBody.value,
+        footnotes: collectFootnotes()
+      };
+    }
+    function updatePreview(){
+      document.getElementById('preview-box').innerHTML = window.BlogRender.renderArticle(currentArticle());
+    }
+
+    // ---- save / update ----
+    document.getElementById('save-btn').addEventListener('click', function(){
+      var a = currentArticle();
+      var status = document.getElementById('form-status');
+      if(!a.title.trim() || !a.slug.trim() || !a.author.trim() || !a.body.trim()){
+        status.className = 'status warn';
+        status.textContent = 'Title, slug, author, and body are all required.';
+        return;
+      }
+      var existingIdx = posts.findIndex(function(p){ return p.slug === a.slug; });
+      if(editingSlug){
+        var idx = posts.findIndex(function(p){ return p.slug === editingSlug; });
+        if(existingIdx !== -1 && existingIdx !== idx){
+          status.className = 'status warn';
+          status.textContent = 'Another article already uses that slug. Pick a unique slug.';
+          return;
+        }
+        posts[idx] = a;
+      } else {
+        if(existingIdx !== -1){
+          status.className = 'status warn';
+          status.textContent = 'An article with that slug already exists. Pick a unique slug or edit the existing one.';
+          return;
+        }
+        posts.unshift(a);
+      }
+      editingSlug = null;
+      status.className = 'status ok';
+      status.textContent = 'Saved to working copy. Download blog-data.js below to publish.';
+      clearForm(true);
+      renderPubList();
+    });
+
+    function clearForm(keepStatus){
+      editingSlug = null; slugTouched = false; currentImage = '';
+      elTitle.value=''; elSlug.value=''; elAuthor.value=''; elBody.value='';
+      coverPreview.style.display='none'; coverPreview.src='';
+      elCover.value='';
+      renderFootnoteRows([]);
+      document.getElementById('editor-heading').textContent = 'New Article';
+      updateSlugPreview();
+      updatePreview();
+      if(!keepStatus){ document.getElementById('form-status').className='status'; document.getElementById('form-status').textContent=''; }
+    }
+    document.getElementById('reset-btn').addEventListener('click', function(){ clearForm(false); });
+
+    // ---- published list ----
+    function renderPubList(){
+      var list = document.getElementById('pub-list');
+      if(!posts.length){ list.innerHTML = '<p class="pub-empty">No articles yet.</p>'; return; }
+      var esc = window.BlogRender.escapeHTML;
+      list.innerHTML = '';
+      posts.forEach(function(p){
+        var item = document.createElement('div');
+        item.className = 'pub-item';
+        item.innerHTML =
+          '<img class="pub-thumb" src="'+(p.image||'')+'" alt="">' +
+          '<div class="pub-meta"><div class="pub-title">'+esc(p.title)+'</div>' +
+          '<div class="pub-author">'+esc(p.author)+' · '+esc(p.slug)+'</div></div>' +
+          '<div class="pub-actions">' +
+            '<button class="btn btn-ghost btn-sm" data-edit="'+esc(p.slug)+'">Edit</button>' +
+            '<button class="btn btn-ghost btn-sm" data-del="'+esc(p.slug)+'">Delete</button>' +
+          '</div>';
+        list.appendChild(item);
+      });
+      Array.prototype.forEach.call(list.querySelectorAll('[data-edit]'), function(b){
+        b.addEventListener('click', function(){ loadForEdit(b.getAttribute('data-edit')); });
+      });
+      Array.prototype.forEach.call(list.querySelectorAll('[data-del]'), function(b){
+        b.addEventListener('click', function(){ deletePost(b.getAttribute('data-del')); });
+      });
+    }
+
+    function loadForEdit(slug){
+      var p = posts.filter(function(x){ return x.slug === slug; })[0];
+      if(!p) return;
+      editingSlug = slug; slugTouched = true; currentImage = p.image || '';
+      elTitle.value = p.title; elSlug.value = p.slug; elAuthor.value = p.author; elBody.value = p.body;
+      if(currentImage){ coverPreview.src = currentImage; coverPreview.style.display='block'; }
+      else { coverPreview.style.display='none'; }
+      renderFootnoteRows(p.footnotes || []);
+      document.getElementById('editor-heading').textContent = 'Editing: ' + p.title;
+      updateSlugPreview(); updatePreview();
+      window.scrollTo({ top:0, behavior:'smooth' });
+    }
+
+    function deletePost(slug){
+      if(!confirm('Delete this article from the working copy?')) return;
+      posts = posts.filter(function(p){ return p.slug !== slug; });
+      if(editingSlug === slug) clearForm(false);
+      renderPubList();
+    }
+
+    // ---- download blog-data.js ----
+    function serialize(){
+      var header =
+'/*\n' +
+' * blog-data.js — VTULR Blog content (single source of truth)\n' +
+' * Generated by /admin. Commit this file to publish changes.\n' +
+' *\n' +
+' * Each record: { slug, title, author, image (base64), body, footnotes:[{n,text}] }\n' +
+' * Publish/edit/delete posts from /admin, then Download and commit this file.\n' +
+' */\n\n';
+      var body = 'const BLOG_POSTS = ' + JSON.stringify(posts, null, 2) + ';\n\n';
+      var footer = "if (typeof window !== 'undefined') { window.BLOG_POSTS = BLOG_POSTS; }\n";
+      return header + body + footer;
+    }
+    document.getElementById('download-btn').addEventListener('click', function(){
+      var blob = new Blob([serialize()], { type:'application/javascript' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = 'blog-data.js';
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+      var st = document.getElementById('download-status');
+      st.className = 'status ok';
+      st.textContent = 'Downloaded. Replace blog-data.js in the repo with this file, then commit & push to go live.';
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

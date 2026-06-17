@@ -1,35 +1,34 @@
 /*
- * blog-data.js — VTULR Blog Post Index
+ * blog-data.js — VTULR Blog content (single source of truth)
  *
- * ADDING A NEW POST:
- * 1. Add an entry to BLOG_POSTS below
- * 2. Copy blog/post-template.html → blog/your-slug.html
- * 3. Fill in the title, author, date, and body text
- * 4. Optional: add a cover image to blog/images/your-slug.jpg
- * 5. git add . && git commit -m "add: [post title]" && git push
- *    Done — the post appears on the blog index automatically.
+ * This file is the ONLY thing that needs to change to publish, edit, or
+ * delete a blog post. The blog index (/blog) and the article renderer
+ * (/blog/post.html?slug=...) both read from the BLOG_POSTS array below.
  *
- * ENTRY FORMAT:
- * {
- *   slug:    "url-safe-post-name",          // used for /blog/slug.html and image path
- *   title:   "Full Post Title Here",
- *   author:  "First Last",
- *   date:    "Mon DD, YYYY",                // e.g. "Feb 14, 2025"
- *   excerpt: "Two or three sentence teaser shown on the index.",
- *   image:   "/blog/images/slug.jpg"        // optional — omit if no image
- * }
+ * HOW TO PUBLISH (the easy way):
+ *   1. Go to /admin and log in.
+ *   2. Write the article (title, author, cover image, body, footnotes).
+ *   3. Click "Download blog-data.js".
+ *   4. Replace this file with the downloaded one and commit + push
+ *      (or send the downloaded file to whoever manages the repo).
+ *   Done — the post appears on the blog automatically.
+ *
+ * RECORD FORMAT:
+ *   {
+ *     slug:    "url-safe-name",            // used in /blog/post.html?slug=...
+ *     title:   "Article Title",
+ *     author:  "First Last",
+ *     image:   "data:image/jpeg;base64,…", // cover image, base64
+ *     body:    "Text. Use [1] for footnote markers and *text* for italics. Blank lines separate paragraphs.",
+ *     footnotes: [ { n: 1, text: "Citation, *italic case names* allowed." } ]
+ *   }
  */
 
 const BLOG_POSTS = [
 
-  // Example (uncomment and fill in when adding a real post):
-  // {
-  //   slug:    "nvidia-antitrust",
-  //   title:   "Too Big To Fail? NVIDIA's Dominance and Rethinking Antitrust Enforcement in the AI Era",
-  //   author:  "Jacqueline Rodriguez",
-  //   date:    "Feb 14, 2025",
-  //   excerpt: "In an era defined by rapid advances in artificial intelligence, the rise of leading chip manufacturers has reshaped both economic and regulatory landscapes.",
-  //   image:   "/blog/images/nvidia-antitrust.jpg"
-  // },
+  // No posts yet — publish your first one from /admin.
 
 ];
+
+// Make available to browser <script> includes.
+if (typeof window !== 'undefined') { window.BLOG_POSTS = BLOG_POSTS; }
