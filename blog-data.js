@@ -84,6 +84,56 @@ Despite existing legal support for treatment-based sentencing, court-ordered dru
   },
 
   {
+    slug: "digital-replicas-voice-cloning",
+    title: "The Legal Status of Digital Replicas of Deceased Performers & Voice Cloning",
+    author: "Tiya Sukhadia",
+    image: "https://gammalaw.com/wp-content/uploads/2026/03/03.2026.AI_VoiceCloning.1000px.jpg",
+    body: `I. Introduction
+
+Artificial intelligence has rapidly transformed the entertainment and media industry by making a performer's voice, likeness, and mannerisms instantly and convincingly reproducible. Through the use of imitation and advanced editing technologies, digital replication uses prior footage to simulate a person so accurately that audiences begin to believe the artificially generated performances are authentic. This technological development has created new opportunities in film, music, advertising, and historical reconstruction, but it has also generated a serious legal challenge. Existing contract and publicity laws were not designed to account for AI-generated replicas, and as a result, they do not adequately regulate this emerging form of identity exploitation.[1]
+
+California's AB 1836, California's AB 2602, and New York's digital replica law represent meaningful attempts to respond to this problem, but they do so ineffectively by leaving significant uncertainty about consent, scope, and constitutional limits.[2] Therefore legislators should move to make a more uniform, clear and detailed legal framework that protects post-mortem publicity rights while preserving legitimate expressive uses of digital replicas.
+
+II. The Digital Replica Problem
+
+Digital replicas are being used to recreate the voices of deceased singers, generate figures that closely resemble dead actors, and produce performances that appear to come from individuals who are no longer alive. The central problem with these replicas is that the people being represented cannot consent, which raises both publicity and consumer protection concerns.
+
+California's AB 1836 addresses this issue by regulating the unauthorized use of a deceased personality's digital replica.[3] California's AB 2602 also limits contracts that would allow a digital replica to replace a living performer's work without informed consent, reflecting concerns about labor protection and performer autonomy.[4] New York's digital replica law is similar in that it was designed to protect performers from the unconsented commercial use of synthetic versions of their voice or likeness.[5] It is especially significant because it renders certain overbroad digital-replica contract provisions void and unenforceable, showing that lawmakers are increasingly concerned about sweeping future waivers that performers may not fully understand.
+
+As this technology continues to develop, the legal system is left with a difficult question: who owns the commercial afterlife of a performer's identity?[6]
+
+III. Existing Legal Framework
+
+The legal system's responses remain fragmented and do not fully address the central issues. California's AB 1836 and AB 2602 are important starting points for regulating unauthorized AI replication in the entertainment industry. AB 1836 "prohibits the use of digital replicas of deceased performers without the consent of such performer's estate,"[7] while AB 2602 "bars contract provisions that enable the use of digital replicas without the performer's informed consent and proper representation."[8]
+
+New York's digital replica law also limits the enforceability of broad and unclear contract language. The law makes certain contractual provisions "void and unenforceable" if they allow the creation of a "new" performance by digital replica under the wrong conditions.[9] In this way, the law does more than regulate the technology itself; it also addresses issues of consent and performer protection.
+
+Still, major questions remain about constitutional limits, interstate consistency, and the scope of post-mortem publicity rights. California's laws apply to both living and deceased performers, while New York focuses more heavily on the contract terms that govern digital replica rights.
+
+IV. Reform
+
+There should be a clearer and more effective solution to this problem, and it should begin with requiring informed, specific, and voluntary consent. For deceased performers, that consent should come from the proper rights holder or estate authority, supported by more detailed contractual language that explains exactly what is being approved and the scope of that approval.
+
+At the same time, the law should preserve room for legitimate expressive uses. Narrow exceptions should remain available for transformative, documentary, historical, and otherwise constitutionally protected works.[10] Clear disclosure requirements would also strengthen the framework. Audiences should not be misled into believing that a performance is authentic when it is synthetic. Transparency would not solve every legal issue, but it would reduce deception and make the market for digital performances more honest. Together with stronger consent rules, disclosure could help create a more predictable and fair legal environment for both performers and creators.
+
+V. Conclusion
+
+Artificial intelligence has made it possible to recreate performers in ways the law did not anticipate. Digital replicas and voice cloning can now extend a performer's identity beyond death, yet the legal system has responded only in partial ways. Although California and New York have taken important steps, major questions remain unresolved. Without a more uniform framework, the better approach is a balanced legal regime that protects post-mortem publicity rights, preserves legitimate expressive uses, and requires meaningful consent and transparency when synthetic performance is involved.`,
+    footnotes: [
+      { n: 1, text: "Raising the Dead: Understanding Post-Mortem Rights of Publicity, Documentary.org (Dec. 4, 2022); Robert C. Post & Jennifer E. Rothman, The First Amendment and the Right(s) of Publicity, 130 *Yale L.J.* (Nov. 1, 2020)." },
+      { n: 2, text: "California Enacts a Suite of New AI and Digital Replica Laws, Manatt (Sept. 24, 2024); California's New AI Laws Limit Uses of Digital Likeness, Fenwick (Sept. 25, 2024); The Digital Replica Contracts Act: An Evaluation of New York's New Protections for Performing Artists, *Cornell J.L. & Pub. Pol'y* (Feb. 11, 2025)." },
+      { n: 3, text: "California Enacts a Suite of New AI and Digital Replica Laws, Manatt, *supra* note 2; California's New AI Laws Limit Uses of Digital Likeness, Fenwick, *supra* note 2." },
+      { n: 4, text: "*Id.*" },
+      { n: 5, text: "The Digital Replica Contracts Act, *Cornell J.L. & Pub. Pol'y*, *supra* note 2." },
+      { n: 6, text: "Raising the Dead, Documentary.org, *supra* note 1." },
+      { n: 7, text: "California Enacts a Suite of New AI and Digital Replica Laws, Manatt, *supra* note 2." },
+      { n: 8, text: "*Id.*" },
+      { n: 9, text: "The Digital Replica Contracts Act, *Cornell J.L. & Pub. Pol'y*, *supra* note 2." },
+      { n: 10, text: "Robert C. Post & Jennifer E. Rothman, The First Amendment and the Right(s) of Publicity, *Yale Law Journal*, *supra* note 1." }
+    ]
+  },
+
+  {
     slug: "civil-society-citizen-engagement",
     title: "Participation on Paper: Civil Society and Citizen Engagement in the United States & Russia",
     author: "Catherina Newnam",
