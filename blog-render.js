@@ -65,7 +65,7 @@
       var n = fn.n;
       return '<li id="fn-' + n + '" value="' + n + '">' +
         applyItalics(escapeHTML(fn.text)) +
-        ' <a class="fn-back" href="#fnref-' + n + '" aria-label="Back to text">↩</a>' +
+        ' <a class="fn-back" href="#fnref-' + n + '" aria-label="Back to text">&#x21A9;&#xFE0E;</a>' +
         '</li>';
     }).join('\n');
     return '<div class="footnotes"><hr><h2 class="footnotes-title">Footnotes</h2><ol>' +
