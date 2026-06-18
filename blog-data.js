@@ -27,59 +27,50 @@
 const BLOG_POSTS = [
 
   {
-    slug: "addiction-is-not-a-crime",
-    title: "Addiction is Not a Crime: The Case for Court-Ordered Drug Treatment",
+    slug: "responsible-party",
+    title: "The Responsible Party is… Not?",
     author: "Arhan Sethi",
     image: "",
     body: `I. Introduction
 
-The U.S. does not have a drug problem. It has a punishment problem. Although federal law increasingly views substance abuse as a medical issue, incarceration remains the default response to nonviolent drug offenses. According to the Bureau of Justice Statistics, approximately 1 in 5 incarcerated individuals in state facilities report committing their crime to obtain money to support drug use. At the same time, the United States has one of the highest incarceration rates globally, with drug offenses being a central reason for prison admissions. However, both federal laws and courts now recognize drug addiction as a medical issue. In 1970, The Controlled Substances Act distinguished substances based on their potential for abuse, contributing to later recognition of addiction as a public health matter, rather than a moral failing. Rehabilitation-focused sentencing options, such as court-ordered drug treatment programs, are ways to reduce repeat offenses and help individuals re-enter society. Thus, court-ordered drug treatment programs should be expanded as a default alternative to incarceration for nonviolent drug offenses because they reduce recidivism, align with current legal recognition of addiction as a medical condition, and improve public safety.[1][2][3][4][5][6]
+In February 2024, a 14-year-old named Sewell Setzer III took his own life after spending months in conversation with a Character.AI chatbot. His mother sued. The company's first move was to argue that chatbot outputs are protected speech under the First Amendment, that holding an AI developer liable for what its system says is no different from holding a publisher liable for what it prints.[1]
 
-II. Mass Incarceration and the Failure of the Punitive Model
+That argument did not work. But the fact that it was tried at all says something about where AI liability law actually stands, that developers are still figuring out what theory, if any, can make them responsible for the harm their systems cause. So far, no one has a clean answer.
 
-The expansion of mass incarceration and punitive drug policy is a product of the War on Drugs era. In 1971, President Richard Nixon declared drug abuse as "public enemy number one," marking a shift toward stricter drug enforcement. This policy approach intensified under the Anti-Drug Abuse Act of 1986, which set mandatory minimum sentences for drug offenses and limits judges' abilities to decide on sentences for nonviolent crimes. Prior to the mandatory minimum sentencing, the U.S. incarcerated approximately 50,000 individuals for drug offenses. By the late 1990s, that number had risen to over 400,000.[7][8][9]
+II. Frameworks in Conflict
 
-Legal scholarly critics of the War on Drugs have described this increase as a major structural transformation in which drug policy became a key driver of mass incarceration rather than a minor enforcement issue. The Prison Policy Initiative found that at least one in four incarcerated individuals are re-arrested within a year. Steven Duke from Yale Law School compared the War on Drugs to Prohibition, observing that the punitive policies produce "criminal organizations, corruption, and the proliferation of more dangerous drugs," while simultaneously discouraging treatment-seeking behavior.[10]
+The problem is not that tort law ignores AI. It is that the frameworks we have were built for a different kind of harm. Negligence requires proving a defendant breached a duty of care, but there is no established legal standard for what "reasonable care" means when you are building a large language model.[2] Strict product liability holds manufacturers responsible for defective products regardless of fault, but courts have historically treated software as a service rather than a product, which cuts off that theory before it starts.[3] Both frameworks assume you can trace harm back to a specific decision by a specific actor. AI complicates that because LLMs are stochastic by design. Businesses deploy systems in contexts that developers never anticipated. Users interact with them in ways nobody planned for. It is as if Achilles had many heels but no single archer, and when the arrow lands, the wound is real, but nobody can agree whose bow fired it.
 
-III. Court-Ordered Drug Treatment as an Alternative
+*Garcia v. Character Technologies* is the first case to seriously test these questions.[4] Judge Anne Conway's May 2025 ruling allowed strict product liability, negligence, and wrongful death claims to proceed, and rejected the First Amendment defense outright. It is a significant win for plaintiffs, and it established something courts had not said before. An AI chatbot can be treated as a product rather than a speaker, but a motion to dismiss ruling only asks whether the claims are plausible. It does not assign liability, and it does not resolve whether AI broadly meets the legal definition of a "product" across jurisdictions.[5]
 
-Court-ordered drug treatment programs offer a different approach within this punitive legal system. The Drug Treatment Alternative to Prison (DTAP), established in Brooklyn in 1990, sends eligible defendants to residential treatment programs instead of prison, with deferred sentences contingent on their completion of the program. Studies of DTAP show noticeable reductions in recidivism. A 2000 study by Dynia and Sung found about a 15 percent drop in re-arrest rates among participants compared to nonparticipants. Research in addiction also shows that structured treatment methods lead to less drug use and lower rates of criminal justice system re-entry. These results indicate that treatment-based diversion not only aims to rehabilitate, but also has distinct effects on behavior after release.[12]
+Meanwhile, the EU answered one of those questions. In 2024, it extended its Product Liability Directive to explicitly cover software, including AI, regardless of whether it is embedded in physical hardware.[6] No equivalent action has happened in the United States. That gap is not a minor detail. It means that a company can build an AI system, deploy it to millions of users, watch it cause documented harm, and face no strict liability exposure, because American courts have not decided whether the thing they built counts as a product.
 
-IV. Equal Protection, Proportionality, and Systemic Disparity
+III. The Black Box Problem
 
-The persistence of incarceration for nonviolent drug offenses raises constitutional concerns under both the Equal Protection Clause and the Eighth Amendment's principle of limited proportionality. Under the Fourteenth Amendment, state punishment systems that produce arbitrary or discriminatory enforcement have long been subject to judicial scrutiny. In *Yick Wo v. Hopkins* (1886), the Supreme Court held that laws appearing neutral but enforced in a biased way violate equal protection rights, striking down a laundry operating system that was applied exclusively against Chinese individuals. Contemporary drug sentencing practices, which disproportionately affect low-income communities and communities of color, raise similar concerns.[13]
+Large language models process inputs through billions of numerical parameters, producing outputs through statistical transformations that resist straightforward interpretation. Unlike traditional software with explicit logical branches, these systems have no clear decision path to trace from input to output. When a model generates a harmful response, developers cannot audit a sequence of steps to identify where the system went wrong. The "black box" problem makes this worse.[7] Even in cases where someone was clearly harmed and an AI system was clearly involved, establishing that a specific design choice caused that specific harm is genuinely difficult. The internal logic of large language models is opaque. Developers cannot always explain why their systems produce a given output. Courts cannot easily apply traditional causation analysis to something that works that way. Plaintiffs end up needing to prove things that may be unprovable.
 
-While courts have been reluctant to treat addiction status as a protected category, many legal reviews have shown disparities in drug enforcement and sentencing. Moreover, the Eighth Amendment prohibits punishment that is excessively disproportionate to the crime. While *Harmelin v. Michigan* (1991) limited the scope of proportionality review by upholding a mandatory life sentence for drug possession, the Court did not entirely eliminate the ruling. Instead, it recognized a narrow rule: the Eighth Amendment forbids only punishments that are "grossly disproportionate" to the offense. This leaves the question of whether routine incarceration for nonviolent drug offenses exceeds constitutional bounds.[14][15]
+IV. Legislative and Judicial Responses
 
-Continuing to impose incarceration for nonviolent possession offenses, especially when recognized treatment plans are available, raises doubts about whether punishment truly achieves retribution or is simply a default. Further, under *Estelle v. Gamble* (1976), the state is constitutionally required to provide proper medical care to incarcerated individuals, holding that deliberate indifference to serious medical needs violates the Eighth Amendment. This standard extends to conditions requiring ongoing treatment, including substance use disorder, which the Supreme Court increasingly recognizes as a serious medical condition. Yet, access to treatment is often underfunded.[16]
+Some legislators are trying to build something better. Colorado's SB24-205 places joint responsibility on both AI developers and the businesses deploying AI in high-stakes contexts, employment, lending, and similar decisions, requiring both parties to disclose how the AI is used and to prevent discriminatory outcomes.[8] Senator Blackburn's proposed federal bill would impose a statutory duty of care on developers to address foreseeable risks, while preserving states' ability to enforce their own rules.[9] These are by far not perfect solutions, but they at least address the right problem: assigning responsibility at the points where decisions are actually made, rather than waiting for a victim to file suit and figure out who to name.
 
-Together, these legal principles expose a constitutional tension: replacing treatment with incarceration may substitute punishment for necessary medical care, subverting the equal protection clause and modern standards of decency. A shift toward presumptive eligibility for treatment in nonviolent drug offenses would better align sentencing practice with constitutional principles, while reflecting contemporary medical understanding of addiction.
+The Trump administration's National AI Legislative Framework, released in March 2026, would preempt state-level AI regulation and consolidate rulemaking at the federal level.[10] The stated goal is consistency and reduced friction for developers. The practical effect, if Congress follows the administration's lead without enacting its own substantive protections, could be stripping states of their ability to experiment while replacing that authority with nothing enforceable. That is not a hypothetical concern. It is what happens when preemption is not paired with a federal floor.
 
-V. Policy Efficiency and Public Safety Rationales
+V. Conclusion
 
-Beyond doctrinal and empirical considerations, court-ordered treatment programs offer significant cost and public safety benefits. Treatment programs are generally estimated to cost significantly less than incarceration, with studies showing costs that are around 50 to 85 percent lower depending on the program's design. Economic analyses also indicate that every dollar invested in treatment leads to measurable savings in lower criminal justice costs and reduced social costs. These savings reflect not only lower incarceration costs, but also decreased rates of reoffending, increased employment prospects, and reduced reliance on public services. From a public safety perspective, the strongest effects are seen in nonviolent drug offenses where addiction, not predatory intent, drives criminal conduct.[17][18]
+There is an argument that courts should develop an AI liability doctrine the way tort law has always developed, incrementally, through specific cases, building principles out of hard facts over time. *Garcia* may eventually do that. But "eventually" is doing a lot of work in that sentence. The litigation timeline for a single case runs for years. The pace of AI deployment runs for months. New systems are reaching millions of users faster than any court can process the claims from the last ones. Waiting for case law to catch up is a choice, and it is a choice that costs real people in the meantime.
 
-VI. Conclusion
-
-Despite existing legal support for treatment-based sentencing, court-ordered drug programs are often underused. The Narcotic Addict Rehabilitation Act of 1966 recognized addiction as a condition suited for treatment-focused sentences, but its implementation has been inconsistently overshadowed by aggressive sentencing practices. While constitutional doctrine distinguishes addiction from voluntary criminal conduct and recognizes the states' responsibilities toward people with medical needs, sentencing systems continue to rely on confinement as their primary ruling. Courts, legislatures, and prosecutors should expand presumptive eligibility for court-ordered treatment in nonviolent drug cases, not as a concession to leniency, but as the response that law, medicine, and evidence all point toward.`,
+The current frameworks are not adequate. Negligence lacks a standard. Product liability lacks a threshold. Federal legislation is either stalled or tilted toward industry. What exists is a patchwork of state experiments that may soon be preempted, a handful of cases in early discovery, and a set of genuine doctrinal questions that nobody has resolved. That is not a legal system equipped to handle what is already happening, let alone what comes next.`,
     footnotes: [
-      { n: 1, text: "Bureau of Justice Statistics, *Drugs and Crime Facts*." },
-      { n: 2, text: "Prison Policy Initiative, *Mass Incarceration: The Whole Pie*." },
-      { n: 3, text: "Controlled Substances Act, 21 U.S.C. § 801 *et seq.* (1970)." },
-      { n: 4, text: "Richard Nixon, Special Message to Congress on Drug Abuse Prevention and Control." },
-      { n: 5, text: "Anti-Drug Abuse Act of 1986, Pub. L. No. 99-570." },
-      { n: 6, text: "Marc Mauer, *Race to Incarcerate* (The New Press 2006) at 33–35." },
-      { n: 7, text: "Steven B. Duke, \"The Drug War and the Constitution,\" Yale L.J. (1993)." },
-      { n: 8, text: "*Ibid.*" },
-      { n: 9, text: "*Ibid.*" },
-      { n: 10, text: "*Ibid.*" },
-      { n: 12, text: "Paul Dynia & Hung-En Sung, *The Safety and Effectiveness of Diversion Programs*; Washington State Institute for Public Policy, *Evidence-Based Public Policy Options to Reduce Crime*." },
-      { n: 13, text: "*Yick Wo v. Hopkins*, 118 U.S. 356 (1886); Michelle Alexander, *The New Jim Crow*." },
-      { n: 14, text: "*Harmelin v. Michigan*, 501 U.S. 957 (1991)." },
-      { n: 15, text: "*Ibid.*" },
-      { n: 16, text: "*Estelle v. Gamble*, 429 U.S. 97 (1976)." },
-      { n: 17, text: "National Institute on Drug Abuse, *Principles of Drug Abuse Treatment for Criminal Justice Populations*." },
-      { n: 18, text: "*Ibid.*" }
+      { n: 1, text: "*Garcia v. Character Technologies, Inc.*, No. 6:24-cv-01903 (M.D. Fla. May 21, 2025); Courts Test Platform Liability in Character AI Tragedy, AI CERTS NEWS (Dec. 2025)." },
+      { n: 2, text: "Ketan Ramakrishnan, Gregory Smith & Conor Downey, U.S. Tort Liability for Large-Scale Artificial Intelligence Damages: A Primer for Developers and Policymakers (RAND Corp. 2024)." },
+      { n: 3, text: "RAND Corp., Liability for Harms from AI Systems: The Application of U.S. Tort Law (2024)." },
+      { n: 4, text: "*Garcia v. Character Technologies, Inc.*, No. 6:24-cv-01903 (M.D. Fla. May 21, 2025)." },
+      { n: 5, text: "What the Megan Garcia Case Tells Us About AI Liability in the U.S., RAILS BLOG (Nov. 2025)." },
+      { n: 6, text: "Liability and Risk Management: When an AI System Causes Harm, SUPER LAWYERS (Feb. 2026)." },
+      { n: 7, text: "Artificial Intelligence: The \"Black Box\" of Product Liability, PRODUCT PERSPECTIVE (Apr. 2025)." },
+      { n: 8, text: "Colo. Rev. Stat. §§ 6-1-1601 to -1610 (2024)." },
+      { n: 9, text: "AI Governance Takes Shape: Breaking Down Washington's Latest AI Frameworks, BROWNSTEIN HYATT FARBER SCHRECK (2025)." },
+      { n: 10, text: "Cecilia Kang, White House Unveils AI Policy Aimed at Blocking State Laws, N.Y. TIMES (Mar. 20, 2026)." }
     ]
   },
 
