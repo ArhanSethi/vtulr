@@ -30,7 +30,7 @@ const BLOG_POSTS = [
     slug: "responsible-party",
     title: "The Responsible Party is… Not?",
     author: "Arhan Sethi",
-    image: "",
+    image: "https://t4.ftcdn.net/jpg/18/50/21/77/360_F_1850217715_xxLs26Ijn5z0dDRfBKBoQ0Z0zau4ABpW.jpg",
     body: `I. Introduction
 
 In February 2024, a 14-year-old named Sewell Setzer III took his own life after spending months in conversation with a Character.AI chatbot. His mother sued. The company's first move was to argue that chatbot outputs are protected speech under the First Amendment, that holding an AI developer liable for what its system says is no different from holding a publisher liable for what it prints.[1]
