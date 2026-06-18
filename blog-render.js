@@ -75,7 +75,7 @@
   // Render the full article inner HTML (title, byline, cover, body, footnotes).
   function renderArticle(article) {
     var cover = article.image
-      ? '<img class="article-cover" src="' + article.image + '" alt="' + escapeHTML(article.title) + '">'
+      ? '<img class="article-cover" src="' + article.image + '" alt="' + escapeHTML(article.title) + '" referrerpolicy="no-referrer">'
       : '';
     return '' +
       '<h1 class="article-title">' + escapeHTML(article.title) + '</h1>' +
