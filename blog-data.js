@@ -337,6 +337,137 @@ The NYT case will be the defining one. It has the clearest evidence of verbatim 
       { n: 8, text: "Directive (EU) 2019/790 of the European Parliament and of the Council of 17 April 2019 on Copyright in the Digital Single Market, art. 4." },
       { n: 9, text: "*See generally* U.S. COPYRIGHT OFFICE, COMPENDIUM OF U.S. COPYRIGHT OFFICE PRACTICES § 1616 (3d ed. 2021)." }
     ]
+  },
+
+  {
+    slug: "state-capacity-legitimacy-gaza",
+    title: "State Capacity, Legitimacy, and the Gaza Crisis: A Comparative Analysis of the Palestinian Conflict",
+    author: "Eshaal Mirza",
+    image: "https://www.rescue.org/sites/default/files/styles/super_widescreen_21x9_3850px_wide/public/2025-08/pic_6.jpg?itok=9Ag2fMiA",
+    body: `I. Introduction
+
+On October 7, 2023, Hamas launched a large-scale attack on southern Israel, killing around 1,200 people and taking roughly 250 hostages.[1] Israel responded with a military campaign in Gaza that, by late 2025, had created one of the worst humanitarian crises of the twenty-first century. This paper looks at the conflict through two comparative political concepts, state capacity and political legitimacy, and argues that what is happening in Gaza is not just a military conflict but the result of much deeper structural problems rooted in colonial land seizure and unequal power.
+
+Palestinian governing capacity has been worn down over decades starting with British imperial policy in the early twentieth century, while Israel has used military force and diplomatic alliances to avoid being held accountable under international law. By October 2025, major UN bodies had concluded that Israel bears responsibility for genocide against Palestinians in Gaza, though Israel has rejected those findings and the case is still before the ICJ. Using a single case study approach, this paper traces the causes of the crisis, what we can learn from it through comparative politics, and what it reveals about power and accountability.
+
+II. Conceptual Framework
+
+This paper uses two main concepts from comparative politics. The first is state capacity, which is a government's ability to function, deliver services, and maintain order in its territory.[2] Gaza's capacity was already critically low before 2023 due to decades of occupation, a blockade, and the split between Hamas in Gaza and the Palestinian Authority in the West Bank. The Israeli military campaign has since destroyed what little was left. The second concept is political legitimacy, which is the perceived right to rule.[3]
+
+Israel has justified its campaign as self-defense under international law, but institutions like the ICJ, the UN Commission of Inquiry, and Amnesty International have challenged that claim given the scale of civilian deaths and findings of genocidal intent. This paper follows a single case study method, focusing on Gaza rather than comparing two separate countries. The situation is too specific, shaped by a particular colonial history and legal status, to map cleanly onto another case. Instead, theories developed through cross-national research on state capacity and legitimacy are applied here to trace how decades of structural conditions led to the current crisis.
+
+III. Historical Context: Colonial Origins of the Conflict
+
+The Israeli-Palestinian conflict did not start on October 7, 2023, or even in 1967. Its roots go back to British imperial policy in the early twentieth century. In 1917, the Balfour Declaration committed Britain to supporting a Jewish homeland in Palestine.[4] This was, however, not purely a humanitarian concern. Britain wanted to keep control over a region connecting the Suez Canal to Middle Eastern oil fields and maintain its influence after the Ottoman Empire collapsed.[5] In other words, Palestine was used as a tool for British interest with little regard for the Arabs already living there.
+
+When Britain left in 1948 and Israel declared independence, the war that followed produced the Nakba, which translates to "the catastrophe." As a result, around 700,000 Palestinian Arabs were displaced and over 400 Palestinian villages were destroyed. After Israel's victory in 1967, it seized the West Bank, Gaza Strip, Sinai Peninsula, and Golan Heights. Then after Hamas took control of Gaza in 2007, Israel imposed a blockade that has since confined about 2.3 million Palestinians to 365 square kilometers.[6] By the time October 2023 arrived, Palestinian governing capacity was already extremely weak. This history plays a crucial part in why the current military campaign has been so devastating.
+
+It is also necessary to note the difference between Zionism and Judaism and to clarify the true definition of antisemitism. Judaism is an ancient Abrahamic religion and cultural identity with various cultural practices and moral principles shared by Jews worldwide. On the contrary, Zionism is a modern political ideology that is rooted in Jewish nationalism and emerged in the late 19th century, advocating for the establishment of a Jewish state. Moreover, the origin of the term "antisemitism" comes from Shem, one of Prophet Noah's sons, whose descendants are recognized as Semites. This includes Phoenicians, Canaanites, Hebrews, Arabs, and Akkadians, making Semite an umbrella term that covers groups of people that are historically recognized as Semitic like the founding prophets and the descendants of Judaism, Christianity, and Islam.[7] It is worth noting that the term was formally used in 1879 by German journalist Wilhelm Marr as a pseudoscientific euphemism targeting Jewish people specifically.[8] This narrow use of the term is itself a problem, because it hides the fact that Arab Palestinians are also Semitic people, by limiting the word "Semite" to Jewish people only. So, using accusations of antisemitism to shut down criticism of Israeli government policy mixes up Judaism with Zionism and ignores the Semitic roots of the Palestinians being displaced. This demonstrates how language can be used as a tool to reinforce prejudice against already vulnerable groups.
+
+IV. The Collapse of Palestinian State Capacity
+
+The destruction of state capacity in Gaza since October 2023 is empirically well documented. By October 2025, OCHA reported 67,173 Palestinians killed and 169,780 injured, while independent demographic modeling by the Max Planck Institute estimated total conflict-related deaths, including those from disease and starvation, surpassed 100,000, with life expectancy falling 47 percent compared to pre-war projections.[9][10] Over 565 aid workers were killed, including 376 UN staff, at an average of four per week throughout 2025. Health and food systems have effectively ceased to function: Gaza's only cancer hospital became non-operational in November 2023 because over 70 percent of cancer medications were out of stock by 2025, and 100 percent of Gaza's population was experiencing acute food insecurity by August 2025.[11]
+
+The other institutional framework that had long made up for the lack of Palestinian state capacity was destroyed when Israel passed laws in October 2024 prohibiting UNRWA from working in Israeli-controlled territory and preventing its foreign employees from entering Gaza.[12] This matches what political science research suggests: when a population has no legitimate outlets or institutions to turn to, it is more likely to turn to extreme forms of resistance.[13]
+
+The most authoritative legal determination came in September 2025, when the UN Independent International Commission of Inquiry concluded that Israel had committed four of the five genocidal acts defined under the 1948 Genocide Convention: killing members of the group, causing serious bodily and mental harm, deliberately inflicting conditions calculated to bring about physical destruction, and imposing measures to prevent births.[14] The Commission found that genocidal intent, the specific legal requirement that distinguishes genocide from other war crimes, was established through both direct statements by Israeli leaders and their consistent pattern of conduct, and was "the only reasonable inference" from the totality of the evidence.[15] Israeli President Isaac Herzog, Prime Minister Benjamin Netanyahu, and former Defense Minister Yoav Gallant were each found to have incited genocide.[16]
+
+These conclusions have been strongly disputed. Israel called the commissioners "Hamas proxies" and dismissed the report as "distorted and false."[17] UN Watch and other legal critics claimed that the Commission did not meet the high standard of *dolus specialis*, citing Israel's declared security goals and pointing out that civilian casualties do not prove genocidal intent on their own.[18] A final merits ruling has not yet been rendered by the ICJ. These discussions are valid and still ongoing. However, the pattern is important for comparative politics analysis regardless of the legal outcome. Instead of complying with the arrest orders for Netanyahu and Gallant issued by the International Criminal Court, the UN Commission, and UNRWA, Israel has responded to these procedures with refusal, counteraccusation, and diplomatic pressure to neutralize them. This is a clear example of a powerful state using its advantages to avoid the rules and consequences that smaller or weaker countries would typically face.
+
+V. Legitimacy, International Law, and Israel's Accountability Avoidance
+
+The second part of this analysis looks at political legitimacy and how Israel has utilized military force and diplomatic alliances to avoid being held accountable under international law. In January 2024, the International Court of Justice issued binding orders in *South Africa v. Israel*, instructing Israel to prevent genocidal acts and allow humanitarian aid into Gaza.[19] In May 2024, the court voted 13 to 2 to order Israel to stop its offensive in Rafah. Israel rejected this and kept fighting.[20] The United States repeatedly vetoed UN Security Council resolutions calling for a ceasefire, blocking that avenue entirely. Additionally, the Trump administration pulled the US out of the UN Human Rights Council in early 2025, removing another form of accountability.[21]
+
+In September 2025, the UN Independent International Commission of Inquiry found that Israel had committed four of the five genocidal acts under the 1948 Genocide Convention, including killing members of the group, causing serious bodily and mental harm, deliberately inflicting conditions calculated to bring about physical destruction, and imposing measures to prevent births.[22] The Commission concluded that genocidal intent was "the only reasonable inference" from the evidence and found that Netanyahu, Herzog, and Gallant had each incited genocide.[23] Israel strongly rejected these findings, calling the report "distorted and false" and the commissioners "Hamas proxies." Critics like UN Watch argued that the Commission did not meet the legal standard for proving genocidal intent, noting that civilian deaths alone do not establish intent to destroy a group.[24] The ICJ has not issued a final ruling and these debates are still ongoing. But for this analysis, the pattern is what matters: Israel has responded to the ICJ, the UN Commission, and ICC arrest warrants for Netanyahu and Gallant by rejecting them and using diplomatic power to limit their reach. That is a clear example of a powerful state using its position to avoid consequences that a weaker state would not be able to escape.
+
+VI. Conclusion
+
+Looking at the Gaza crisis through state capacity and political legitimacy makes it clear that when military force, unequal power, and colonial dispossession operate without real accountability, the results are catastrophic. Every major international organization has documented the starvation, displacement, and institutional collapse that this military campaign has produced, all of it hitting a population whose governing capacity had already been ravaged over a century of occupation dating back to the Balfour Declaration. Israel has blocked accountability at every turn, defying ICJ rulings, banning UNRWA, rejecting the UN Commission's findings, and relying on US vetoes in the Security Council to avoid any legally binding consequences.
+
+This case also points to some larger patterns. First, legitimacy is not something a state holds onto permanently. When enough legal bodies conclude that a state has crossed lines, legitimacy starts to erode even among allies. Second, accountability mechanisms are only as strong as the political will behind them. When that will is absent, law becomes a record of what went wrong rather than a tool to stop it. Third, the root causes of this crisis are not hidden. Comparative politics asks us to look past immediate triggers to deeper structural causes. In Gaza, those causes trace directly to the use of Palestinian land for British imperial gain and the decades of military occupation that followed. The current moment is a test of whether the international system can hold even its most protected and powerful actors to the standards it claims to uphold.`,
+    footnotes: [
+      { n: 1, text: "Hamas launched the attack on October 7, 2023. *See* Off. for the Coordination of Humanitarian Affs. (OCHA), Humanitarian Situation Update #329: Gaza Strip (2025) [hereinafter OCHA 2025]." },
+      { n: 2, text: "*See* Stephen Orvis & Carol Ann Drogus, *Introducing Comparative Politics* 40–42 (CQ Press 2019) [hereinafter Orvis & Drogus]." },
+      { n: 3, text: "*Id.* at 44–45." },
+      { n: 4, text: "*See* Arthur James Balfour, The Balfour Declaration (Nov. 2, 1917) (letter to Lord Walter Rothschild)." },
+      { n: 5, text: "*See* Rashid Khalidi, *The Hundred Years' War on Palestine: A History of Settler Colonialism and Resistance, 1917–2017*, at 28–34 (Metropolitan Books 2020)." },
+      { n: 6, text: "United Nations, The Question of Palestine: Historical Overview (U.N. Dep't of Pol. & Peacebuilding Affs. 2023); OCHA 2025, *supra* note 1." },
+      { n: 7, text: "*See* David Testen, Semitic Languages, Encyclopaedia Britannica (Apr. 24, 2026)." },
+      { n: 8, text: "*See* Moshe Zimmermann, *Wilhelm Marr, the Patriarch of Antisemitism* 15–18 (Oxford Univ. Press 1986)." },
+      { n: 9, text: "OCHA 2025, *supra* note 1." },
+      { n: 10, text: "Max Planck Inst. for Demographic Research & Ctr. for Demographic Studies, Gaza: Study Reveals Unprecedented Losses of Life and Life Expectancy (2025)." },
+      { n: 11, text: "OCHA 2025, *supra* note 1; U.N. Relief & Works Agency for Palestine Refugees (UNRWA), UNRWA Situation Report #202 (2025) [hereinafter UNRWA 2025]." },
+      { n: 12, text: "UNRWA 2025, *supra* note 11." },
+      { n: 13, text: "Orvis & Drogus, *supra* note 2, at 55." },
+      { n: 14, text: "Off. of the U.N. High Comm'r for Human Rights (OHCHR), Israel Has Committed Genocide in the Gaza Strip, UN Commission Finds (Sept. 16, 2025) [hereinafter OHCHR 2025]." },
+      { n: 15, text: "*Id.*" },
+      { n: 16, text: "*Id.*" },
+      { n: 17, text: "NPR, Israel Is Committing Genocide in Gaza, U.N. Inquiry Finds (Sept. 16, 2025)." },
+      { n: 18, text: "U.N. Watch, UN Watch Legal Rebuttal: Disproving the Pillay Commission's \"Genocide\" Accusation Against Israel (Oct. 26, 2025)." },
+      { n: 19, text: "Int'l Court of Justice, Order on Provisional Measures: *South Africa v. Israel* (Jan. 2024) [hereinafter ICJ 2024]." },
+      { n: 20, text: "ICJ 2024, *supra* note 19." },
+      { n: 21, text: "NPR, *supra* note 17." },
+      { n: 22, text: "OHCHR 2025, *supra* note 14." },
+      { n: 23, text: "*Id.*" },
+      { n: 24, text: "U.N. Watch, *supra* note 18." }
+    ]
+  },
+
+  {
+    slug: "measuring-risk-data-constructs-reality",
+    title: "Measuring Risk: How Data Constructs Reality",
+    author: "Eshaal Mirza",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/e2/OrteliusWorldMap1570.jpg",
+    body: `I. Introduction
+
+Measurement, like mapping, creates power structures. As Denis Wood writes, maps work because they apply social forces to people and bring into being a socialized space.[1] This notion of measurement as governance parallels the idea that categories like risk or creditworthiness shape human realities rather than portray them neutrally. Systems of data, like systems of mapping, actively produce society rather than mirror it. What makes this especially dangerous is that the people being measured within the maps and other data rarely have their opinions and judgment taken into account in how the categories are built or what they are made to mean.
+
+Ruha Benjamin describes how even something as personal as naming a child becomes politically charged when fed into systems that classify people as risky or safe, because algorithms view names as data.[2] From airport screening to police databases, these technologies interpret names as markers of risk, again revealing how measurements shape society rather than reflect it. The person being classified is never able to firsthand view the weight their name carries inside the system, thus they have no mechanism available to contest it. That asymmetry — where the system is aware of your life as both qualitative and quantifiable data and yet you simultaneously know nothing of the system — is a calculated tool to maintain authority. Through repetition and institutionalization, society collectively actualizes these systems as truth to sustain order and legitimacy.
+
+II. Risk as a Calculative System
+
+Risk can be defined by calculative systems that quantify social functions today. In Wood's account of the rise of the map with the rise of the modern state, he underscores how mapping emerged to manage territory and ultimately political control.[3] Modern systems of measurement are similar in their purpose: to manage populations and codify power. Just as early maps emerged from the state's need to catalog land and people, modern data systems quantify risk to maintain order and control. In other words, when the logic is hidden behind a corporate algorithm or a government database, the ability to push back and resist collapses, and the judgment simply stands as true. That is the difference in which a citizen can see a map on a wall and argue with it, whereas a risk score is invisible, proprietary, and presented as settled.
+
+Benjamin's concept of the "New Jim Code" describes how new forms of measurement such as data algorithms perpetuate the same racial hierarchies as older systems of discrimination, but now with the false front of efficiency and neutrality.[4] What makes the New Jim Code more durable than what came before is precisely that it does not look like discrimination. It looks like math. And because math carries the cultural authority of objectivity, challenging the outcome requires first convincing people that the process itself was never initially neutral — which is a much harder argument to gain support for. When credit algorithms label individuals as high risk, these labels become mechanisms of governance rather than accuracy. Risk, in this sense, is not discovered by data. It is constructed by it.
+
+III. Representation Becomes Control
+
+Representation has acquired regulatory authority through descriptive data becoming systems of control. Wood further observes that once maps are published, they are accepted as descriptions of the way things actually are, even though they cover up the processes and assumptions behind them.[5] Algorithmic systems replicate this logic by transforming statistical data and correlations into binding judgments on individuals and communities. The binding nature of these judgments is what separates algorithmic systems from older forms of description. A map can be redrawn. A credit score or deportation flag follows a person across institutions, across years, and across contexts it was never originally designed for, accumulating authority the further it travels from its origin.
+
+Benjamin illustrates that once a digital record is created, whether it is a risk score or a gang database entry, it is repurposed as governance.[6] And unlike a physical record that can be lost or destroyed, digital governance and data codes are permanent, searchable, and shareable across agencies and institutions with almost no friction. A record created for one narrow purpose can be pulled into an entirely different system years later, applied to a situation its creators did not anticipate, and used to make a decision the person it describes has no knowledge of or power over. The transition from representation to control happens invisibly but intentionally, inside systems that claim neutrality.
+
+IV. The Myth of Objectivity
+
+As a society there must be a collective effort to challenge neutrality and expose the human bias behind systems. Wood demonstrates that maps appear objective but are inherently political tools that serve the interests of the state, and he reminds us that neutrality is a social performance.[7] The problem itself is not just that these tools serve a certain interest. It is that they are designed to look like they serve no interests at all, which is one of the most powerful political moves available. A tool that announces its bias can be resisted; a tool that successfully performs objectivity puts the burden of proof on the person it harms, who must first convince others that the system claiming neutrality was political before they can even begin to argue that its data was interpreted incorrectly.
+
+Similarly, algorithmic risk assessments wear the mask of objectivity while quietly reinforcing historical inequalities. Benjamin notes that racial bias is often doubled or hidden behind the digital design.[8] The real error to be pursued is not the presence of prejudice but the intentional concealment of it under the guise of fairness. When bias is made to look like logic, it becomes much harder to name and much easier to sustain. This system is difficult to dismantle because it gives institutions plausible deniability while producing the same outcomes. The harm is measurable, but the mechanism is obscured. Moreover, as long as the encoded bias stays hidden, the institution can point to the algorithm and declare the decision was not theirs to make.
+
+V. Feedback Cycles and Self-Fulfilling Inequality
+
+Feedback cycles of measurement enforce control, creating self-fulfilling systems of inequality justified through efficiency. Maps become governing devices that command compliance through their perceived truth.[9] Humans obey algorithmic scores and conclusions because they appear legitimate, not because they are transparent. There is no need for direct coercion when power lies in belief.
+
+Berger and Luckmann emphasize that routine actions create institutional legitimacy.[10] The process of quantifying risk demonstrates habitualization at scale — repetitive data modeling that feels rational but is historically contingent.[11] These patterned choices become institutions sustained by habit and consensus, which then legitimizes data as truth rather than interpretation. Repetition of the data works more effectively than force.
+
+VI. Conclusion
+
+Maps and models are engines that convert human complexity into the language of governance, a process that now demands more attention, accountability, and resistance. Benjamin underscores that the real danger is not the presence of bias but its concealment, and the way systems of data quietly do the work that older systems of discrimination once did openly.[12]
+
+True data ethics demands slowing the pace of innovation to consider who bears its costs. Systems that encode risk must be reimagined to include community input, not simply more sophisticated machinery. Wood's central insight holds: as long as we accept the map as the territory, we will keep mistaking a tool of governance for a fact of nature.[13]`,
+    footnotes: [
+      { n: 1, text: "Denis Wood, *Rethinking the Power of Maps* 39 (Guilford Press 2010)." },
+      { n: 2, text: "Ruha Benjamin, *Race After Technology: Abolitionist Tools for the New Jim Code* 67 (Polity Press 2019) [hereinafter Benjamin]." },
+      { n: 3, text: "Wood, *supra* note 1, at 21." },
+      { n: 4, text: "Benjamin, *supra* note 2, at 58." },
+      { n: 5, text: "Wood, *supra* note 1, at 39." },
+      { n: 6, text: "Benjamin, *supra* note 2, at 10–12." },
+      { n: 7, text: "Wood, *supra* note 1, at 44." },
+      { n: 8, text: "Benjamin, *supra* note 2, at 70." },
+      { n: 9, text: "Wood, *supra* note 1, at 44." },
+      { n: 10, text: "Peter L. Berger & Thomas Luckmann, *The Social Construction of Reality* 92–101 (Routledge 2023) [hereinafter Berger & Luckmann]." },
+      { n: 11, text: "*Id.* at 92." },
+      { n: 12, text: "Benjamin, *supra* note 2, at 70." },
+      { n: 13, text: "Wood, *supra* note 1, at 39." }
+    ]
   }
 
 ];
