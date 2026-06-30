@@ -23,7 +23,10 @@ const INTERVIEWS = [
     title: "Reading the Contract: John Schultz on Engineering, the Law, and Building a Career in Civil Construction",
     author: "Catherina Newnam",
     date: "Spring 2026",
-    note: "Interview conducted Spring 2026. Edited for length and clarity.",
+    interviewer: "VTULR",
+    intervieweeFull: "John Schultz (JS)",
+    intervieweeShort: "JS",
+    note: "The interview below was conducted in Spring 2026 and has been edited for length and clarity.",
     intro: "John Schultz began his career pouring concrete and laying pipe on PennDOT highway crews before working his way up in Allan Myers, one of the Mid-Atlantic's most prominent heavy civil construction firms. Along the way, he earned a law degree at Temple University's renowned night program while simultaneously running multi-million-dollar jobs during the day, passed the Pennsylvania bar, and served as in-house counsel before returning to operational leadership. Today he sits on the board of FAM, the joint venture behind the $2.5 billion I-66 Transform project in Northern Virginia, and is transitioning into leadership of Allan Myers' Pennsylvania business unit. We spoke with Schultz about the unlikely path that brought a civil engineer into a courtroom.",
     qa: [
       {

@@ -23,22 +23,31 @@
     return applyItalics(escapeHTML(text));
   }
 
-  // Render the full interview inner HTML.
+  // Render the full interview inner HTML (Harvard-style: italic intro,
+  // bold inline speaker labels prefixing regular-weight paragraphs).
   function renderInterview(iv) {
     var html = '';
     html += '<h1 class="iv-title">' + escapeHTML(iv.title) + '</h1>';
     html += '<p class="iv-byline">By ' + escapeHTML(iv.author);
     if (iv.date) html += ' &nbsp;|&nbsp; ' + escapeHTML(iv.date);
     html += '</p>';
-    if (iv.note) html += '<p class="iv-note">' + formatInline(iv.note) + '</p>';
-    if (iv.intro) html += '<div class="iv-intro"><p>' + formatInline(iv.intro) + '</p></div>';
+
+    // Intro bio + editorial note, both italic.
+    if (iv.intro) html += '<p class="iv-intro">' + formatInline(iv.intro) + '</p>';
+    if (iv.note) html += '<p class="iv-intro">' + formatInline(iv.note) + '</p>';
+
+    var qLabel = iv.interviewer || 'Q';
+    var aLabelFull = iv.intervieweeFull || iv.intervieweeShort || 'A';
+    var aLabelShort = iv.intervieweeShort || aLabelFull;
+
     if (iv.qa && iv.qa.length) {
       html += '<div class="iv-qa">';
-      iv.qa.forEach(function (pair) {
-        html += '<div class="iv-pair">';
-        html += '<p class="iv-q">' + formatInline(pair.q) + '</p>';
-        html += '<p class="iv-a">' + formatInline(pair.a) + '</p>';
-        html += '</div>';
+      iv.qa.forEach(function (pair, i) {
+        var aLabel = (i === 0) ? aLabelFull : aLabelShort;
+        html += '<p class="iv-turn"><strong>' + escapeHTML(qLabel) + ':</strong> ' +
+          formatInline(pair.q) + '</p>';
+        html += '<p class="iv-turn"><strong>' + escapeHTML(aLabel) + ':</strong> ' +
+          formatInline(pair.a) + '</p>';
       });
       html += '</div>';
     }
