@@ -77,9 +77,11 @@
     var cover = article.image
       ? '<img class="article-cover" src="' + article.image + '" alt="' + escapeHTML(article.title) + '" referrerpolicy="no-referrer">'
       : '';
+    var byline = 'Written By ' + escapeHTML(article.author);
+    if (article.date) byline += ' &nbsp;|&nbsp; ' + escapeHTML(article.date);
     return '' +
       '<h1 class="article-title">' + escapeHTML(article.title) + '</h1>' +
-      '<p class="article-byline">Written By ' + escapeHTML(article.author) + '</p>' +
+      '<p class="article-byline">' + byline + '</p>' +
       cover +
       '<div class="article-body">' + renderBody(article.body) + '</div>' +
       renderFootnotes(article.footnotes);

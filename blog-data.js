@@ -30,6 +30,7 @@ const BLOG_POSTS = [
     slug: "responsible-party",
     title: "The Responsible Party is… Not?",
     author: "Arhan Sethi",
+    date: "Spring 2026",
     image: "https://t4.ftcdn.net/jpg/18/50/21/77/360_F_1850217715_xxLs26Ijn5z0dDRfBKBoQ0Z0zau4ABpW.jpg",
     body: `I. Introduction
 
@@ -78,6 +79,7 @@ The current frameworks are not adequate. Negligence lacks a standard. Product li
     slug: "digital-replicas-voice-cloning",
     title: "The Legal Status of Digital Replicas of Deceased Performers & Voice Cloning",
     author: "Tiya Sukhadia",
+    date: "Spring 2026",
     image: "https://gammalaw.com/wp-content/uploads/2026/03/03.2026.AI_VoiceCloning.1000px.jpg",
     body: `I. Introduction
 
@@ -128,6 +130,7 @@ Artificial intelligence has made it possible to recreate performers in ways the 
     slug: "civil-society-citizen-engagement",
     title: "Participation on Paper: Civil Society and Citizen Engagement in the United States & Russia",
     author: "Catherina Newnam",
+    date: "Spring 2026",
     image: "https://www.thoughtco.com/thmb/qTnKoNtotAbdVonMxEhknUt4brE=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/voters-voting-in-polling-place-138711480-87a09f220a71438dbdff698a643c8cf1.jpg",
 
     body: `I. Introduction
@@ -202,6 +205,7 @@ The lesson is not that democracy is easy or that the United States has solved th
     slug: "icc-us-challenge",
     title: "Power, Politics, and the U.S. Challenge to the International Criminal Court",
     author: "Catherina Newnam",
+    date: "Spring 2026",
     image: "https://i0.wp.com/www.justsecurity.org/wp-content/uploads/2022/05/GettyImages-1322530622-scaled.jpg?resize=2048%2C1442&ssl=1",
     body: `I. Introduction
 
@@ -243,6 +247,7 @@ The United States' relationship with the ICC leaves space for a larger question:
     slug: "911-executive-power",
     title: "How 9/11 and the War on Terror Led to the Expansion of Executive Power",
     author: "Tiya Sukhadia",
+    date: "Spring 2026",
     image: "https://ctc.westpoint.edu/wp-content/uploads/2019/09/181031-Z-YV608-1012.jpg",
     body: `I. Introduction
 
@@ -290,6 +295,7 @@ The literature demonstrates that the post-9/11 expansion of executive power actu
     slug: "transformative-or-infringing",
     title: "Transformative or Infringing? Fair Use Doctrine and the Training of Large Language Models",
     author: "Arhan Sethi",
+    date: "Spring 2026",
     image: "https://th-thumbnailer.cdn-si-edu.com/lv3JbwGJ9mrI8LTrhzP01xTskgU=/fit-in/1600x0/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/af/ac/afac33cd-f4c9-4258-bd83-ea79c5c0152e/42-73700646.jpg",
     body: `I.  Introduction
 
@@ -343,6 +349,7 @@ The NYT case will be the defining one. It has the clearest evidence of verbatim 
     slug: "state-capacity-legitimacy-gaza",
     title: "State Capacity, Legitimacy, and the Gaza Crisis: A Comparative Analysis of the Palestinian Conflict",
     author: "Eshaal Mirza",
+    date: "Spring 2026",
     image: "https://www.rescue.org/sites/default/files/styles/super_widescreen_21x9_3850px_wide/public/2025-08/pic_6.jpg?itok=9Ag2fMiA",
     body: `I. Introduction
 
@@ -417,6 +424,7 @@ This case also points to some larger patterns. First, legitimacy is not somethin
     slug: "measuring-risk-data-constructs-reality",
     title: "Measuring Risk: How Data Constructs Reality",
     author: "Eshaal Mirza",
+    date: "Spring 2026",
     image: "https://upload.wikimedia.org/wikipedia/commons/e/e2/OrteliusWorldMap1570.jpg",
     body: `I. Introduction
 
