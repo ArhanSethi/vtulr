@@ -386,7 +386,7 @@
 
         <div class="sticky-col">
           <p class="section-label" style="margin-bottom:24px;">Submit Your Paper</p>
-          <form class="contact-form" action="https://formspree.io/f/xgoqjlqp" method="POST">
+          <form class="contact-form" action="https://formspree.io/f/xgoqjlqp" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_next" value="https://vtulr.org/submit-thanks.html">
             <input type="hidden" name="_subject" value="New Submission — VTULR">
             <input type="text" name="_gotcha" style="display:none">
@@ -420,6 +420,10 @@
             <div class="form-group">
               <label class="form-label" for="s-abstract">Abstract <span style="color:#861F41;">*</span></label>
               <textarea class="form-textarea" id="s-abstract" name="abstract" rows="4" placeholder="Provide a brief abstract (150–300 words)" required></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="s-file">Upload Manuscript (.docx or .pdf) <span style="color:#861F41;">*</span></label>
+              <input class="form-input" type="file" id="s-file" name="attachment" accept=".doc,.docx,.pdf" required style="padding:8px 14px;">
             </div>
             <div class="form-group">
               <div class="form-check">
