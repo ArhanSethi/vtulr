@@ -18,7 +18,11 @@
       --text: #222222; --muted: #666666; --light: #999999;
       --border: #dddddd; --offwhite: #f7f7f5;
     }
-    body { font-family: 'Lato', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Lato', sans-serif; color: var(--text); background: #fff; overflow-x: hidden;
+      display: flex; flex-direction: column; min-height: 100vh;
+    }
     .container { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
 
     /* NAV */
@@ -71,8 +75,26 @@
       letter-spacing: 0.2em; text-transform: uppercase; color: var(--maroon); margin-bottom: 16px;
     }
 
+    /* ABOUT */
+    .about-section { background: #fff; padding: 8px 0 80px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .body-para {
+      font-family: 'Lato', sans-serif; font-size: 0.98rem; color: #444;
+      line-height: 1.8; margin-bottom: 20px;
+    }
+    .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .photo-cell {
+      aspect-ratio: 1; background: var(--offwhite);
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .photo-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo-caption {
+      font-family: 'Lato', sans-serif; font-style: italic; font-size: 0.85rem;
+      color: var(--light); margin-top: 16px;
+    }
+
     /* FOOTER */
-    footer { background: var(--maroon); color: #fff; border-top: 3px solid var(--orange); }
+    footer { background: var(--maroon); color: #fff; border-top: 3px solid var(--orange); margin-top: auto; }
     .footer-grid {
       display: grid; grid-template-columns: repeat(4, 1fr);
       gap: 32px; padding: 48px 0 40px; border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -316,9 +338,7 @@
 
   <div class="page-header">
     <div class="container">
-      <p class="page-overline">About</p>
       <h1 class="page-title">Who We Are</h1>
-      <p class="page-sub">Virginia Tech's first undergraduate legal publication.</p>
     </div>
   </div>
 
@@ -328,11 +348,9 @@
 
         <div>
           <p class="section-label">Our Mission</p>
-          <p class="body-para">The Virginia Tech Undergraduate Law Review is a student-run publication founded in 2024 at Virginia Polytechnic Institute and State University. We exist to give undergraduate students a rigorous, serious venue to engage with the law — to research it, write about it, and push its boundaries.</p>
+          <p class="body-para">The Virginia Tech Undergraduate Law Review is a student-run publication founded in 2026 at Virginia Polytechnic Institute and State University. We exist to give undergraduate students a rigorous, serious venue to engage with the law — to research it, write about it, and push its boundaries.</p>
           <p class="body-para">We publish original scholarship, conduct interviews with legal practitioners and scholars, and produce commentary on emerging questions of law and policy. Our editorial process is modeled on the standards of established law reviews: double-blind peer review, full Bluebook cite-checking, and a commitment to intellectual honesty.</p>
           <p class="body-para">VTULR is open to students from every major and background. We believe legal literacy matters beyond the law school classroom, and that undergraduates have something genuine to contribute to legal discourse.</p>
-          <p class="section-label" style="margin-top:40px;">Founded</p>
-          <p class="founded-text">Virginia Tech, Blacksburg, Virginia — 2024</p>
         </div>
 
         <div>
