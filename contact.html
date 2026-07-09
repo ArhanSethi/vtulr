@@ -69,7 +69,7 @@
       letter-spacing: 0.2em; text-transform: uppercase; color: var(--maroon); margin-bottom: 16px;
     }
 
-    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; max-width: 560px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
     .form-label {
       font-family: 'Lato', sans-serif; font-size: 0.7rem; font-weight: 700;
@@ -346,20 +346,23 @@
     </div>
   </div>
 
+  <div class="page-header">
+    <div class="container">
+      <p class="page-overline">Get Involved</p>
+      <h1 class="page-title">Contact Us</h1>
+      <p class="page-sub">
+        Have a question you need answered? Want to get in touch with someone directly? Please fill out this form or email us at
+        <a href="mailto:ulr.virginiatech@gmail.com" style="color:var(--maroon);font-weight:700;">ulr.virginiatech@gmail.com</a>
+        and we will respond to your inquiry at our earliest convenience.
+      </p>
+    </div>
+  </div>
+
   <section class="contact-section">
     <div class="container">
-      <div class="two-col two-col-contact">
 
         <div>
-          <h1 class="page-title" style="margin-bottom:24px;">Contact Us.</h1>
-          <p style="font-family:'Newsreader',Georgia,serif;font-size:1.15rem;font-variation-settings:'opsz' 14,'wght' 400;color:#333;line-height:1.75;">
-            Have a question you need answered? Want to get in touch with someone directly? Please fill out this form or email us at
-            <a href="mailto:ulr.virginiatech@gmail.com" style="color:var(--maroon);font-weight:700;text-decoration:underline;">ulr.virginiatech@gmail.com</a>
-            and we will respond to your inquiry at our earliest convenience.
-          </p>
-        </div>
-
-        <div>
+          <p class="section-label" style="margin-bottom:24px;">Send a Message</p>
           <form class="contact-form" action="https://formspree.io/f/maqkgdkq" method="POST">
             <input type="hidden" name="_next" value="https://vtulr.org/contact-thanks.html">
             <input type="hidden" name="_subject" value="New Contact Message — VTULR">
@@ -394,7 +397,6 @@
           </form>
         </div>
 
-      </div>
     </div>
   </section>
 
