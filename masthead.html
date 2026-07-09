@@ -18,7 +18,11 @@
       --text: #222222; --muted: #666666; --light: #999999;
       --border: #dddddd; --offwhite: #f7f7f5;
     }
-    body { font-family: 'Lato', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Lato', sans-serif; color: var(--text); background: #fff; overflow-x: hidden;
+      display: flex; flex-direction: column; min-height: 100vh;
+    }
     .container { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
 
     /* NAV */
@@ -71,8 +75,17 @@
       letter-spacing: 0.2em; text-transform: uppercase; color: var(--maroon); margin-bottom: 16px;
     }
 
+    /* MASTHEAD */
+    .masthead-section { background: #fff; padding: 8px 0 96px; }
+    .empty-state { text-align: center; padding: 48px 0 32px; }
+    .empty-state-title {
+      font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 1.3rem;
+      font-weight: 300; font-variation-settings: 'opsz' 14, 'wght' 300; color: #999; margin-bottom: 12px;
+    }
+    .empty-state-sub { font-family: 'Lato', sans-serif; font-size: 0.85rem; color: #bbb; }
+
     /* FOOTER */
-    footer { background: var(--maroon); color: #fff; border-top: 3px solid var(--orange); }
+    footer { background: var(--maroon); color: #fff; border-top: 3px solid var(--orange); margin-top: auto; }
     .footer-grid {
       display: grid; grid-template-columns: repeat(4, 1fr);
       gap: 32px; padding: 48px 0 40px; border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -316,17 +329,15 @@
 
   <div class="page-header">
     <div class="container">
-      <p class="page-overline">About</p>
       <h1 class="page-title">Masthead</h1>
-      <p class="page-sub">The editorial team behind VTULR.</p>
     </div>
   </div>
 
   <section class="masthead-section">
     <div class="container">
-      <div class="masthead-inner">
-        <p class="masthead-soon">Masthead coming soon.</p>
-        <p class="masthead-sub">Our full editorial board will be listed here once the 2025–2026 volume is underway.</p>
+      <div class="empty-state">
+        <p class="empty-state-title">Masthead coming soon.</p>
+        <p class="empty-state-sub">Our full editorial board will be listed here once the 2026–2027 volume is underway.</p>
       </div>
     </div>
   </section>
