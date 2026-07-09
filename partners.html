@@ -71,6 +71,65 @@
       letter-spacing: 0.2em; text-transform: uppercase; color: var(--maroon); margin-bottom: 16px;
     }
 
+    /* PARTNERS */
+    .partners-section { background: #fff; padding: 8px 0 72px; }
+    .partners-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 40px;
+    }
+    .partners-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 64px;
+    }
+    .partner-card {
+      border: 1px solid var(--border); padding: 32px 28px; display: flex;
+      flex-direction: column; align-items: flex-start; background: #fff;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .partner-card:hover { border-color: var(--maroon); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .partner-logo {
+      max-width: 160px; max-height: 56px; width: auto; height: auto;
+      object-fit: contain; margin-bottom: 24px;
+    }
+    .partner-logo-placeholder {
+      width: 100%; height: 56px; display: flex; align-items: center; justify-content: center;
+      background: var(--offwhite); color: var(--light); font-family: 'Lato', sans-serif;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .partner-name {
+      font-family: 'Newsreader', Georgia, serif; font-size: 1.2rem; font-weight: 500;
+      font-variation-settings: 'opsz' 20, 'wght' 500; color: #111; margin-bottom: 12px;
+    }
+    .partner-desc {
+      font-family: 'Lato', sans-serif; font-size: 0.9rem; color: #666;
+      line-height: 1.65; margin-bottom: 20px; flex-grow: 1;
+    }
+    .partner-link {
+      font-family: 'Lato', sans-serif; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--maroon);
+      text-decoration: none;
+    }
+    .partner-link:hover { color: var(--orange); }
+    .partner-cta {
+      text-align: center; padding: 56px 32px; background: var(--offwhite);
+      border: 1px solid var(--border);
+    }
+    .partner-cta-heading {
+      font-family: 'Newsreader', Georgia, serif; font-size: 1.6rem; font-weight: 400;
+      font-variation-settings: 'opsz' 32, 'wght' 400; color: #111; margin-bottom: 12px;
+    }
+    .partner-cta-body {
+      font-family: 'Lato', sans-serif; font-size: 0.95rem; color: #666;
+      line-height: 1.7; max-width: 480px; margin: 0 auto 24px;
+    }
+    .partner-cta-btn {
+      display: inline-block; font-family: 'Lato', sans-serif; font-size: 0.72rem;
+      font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: #fff; background: var(--maroon); padding: 14px 32px; text-decoration: none;
+      transition: background 0.15s;
+    }
+    .partner-cta-btn:hover { background: var(--orange); }
+
     /* FOOTER */
     footer { background: var(--maroon); color: #fff; border-top: 3px solid var(--orange); }
     .footer-grid {
@@ -333,7 +392,7 @@
 
         <!-- LSAT Demon -->
         <div class="partner-card">
-          <div class="partner-logo-placeholder">LSAT Demon</div>
+          <img class="partner-logo" src="https://www.strategyprep.com/img/lsat-demon.png" alt="LSAT Demon" referrerpolicy="no-referrer">
           <p class="partner-name">LSAT Demon</p>
           <p class="partner-desc">LSAT Demon is an adaptive LSAT prep platform built by 99th-percentile scorers. VTULR is proud to partner with a resource trusted by thousands of pre-law students nationwide.</p>
           <a class="partner-link" href="https://www.lsatdemon.com" target="_blank" rel="noopener">Visit lsatdemon.com →</a>
