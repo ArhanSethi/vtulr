@@ -78,7 +78,7 @@
       border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 40px;
     }
     .partners-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 64px;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-bottom: 64px;
     }
     .partner-card {
       border: 1px solid var(--border); padding: 32px 28px; display: flex;
@@ -110,22 +110,23 @@
       text-decoration: none;
     }
     .partner-link:hover { color: var(--orange); }
-    .partner-cta {
-      text-align: center; padding: 56px 32px; background: var(--offwhite);
-      border: 1px solid var(--border);
+    .partner-cta-card {
+      align-items: center; justify-content: center; text-align: center;
+      background: var(--offwhite); border-style: dashed;
     }
+    .partner-cta-card:hover { border-color: var(--orange); box-shadow: none; }
     .partner-cta-heading {
-      font-family: 'Newsreader', Georgia, serif; font-size: 1.6rem; font-weight: 400;
-      font-variation-settings: 'opsz' 32, 'wght' 400; color: #111; margin-bottom: 12px;
+      font-family: 'Newsreader', Georgia, serif; font-size: 1.35rem; font-weight: 500;
+      font-variation-settings: 'opsz' 24, 'wght' 500; color: #111; margin-bottom: 12px;
     }
     .partner-cta-body {
-      font-family: 'Lato', sans-serif; font-size: 0.95rem; color: #666;
-      line-height: 1.7; max-width: 480px; margin: 0 auto 24px;
+      font-family: 'Lato', sans-serif; font-size: 0.9rem; color: #666;
+      line-height: 1.65; margin-bottom: 22px;
     }
     .partner-cta-btn {
       display: inline-block; font-family: 'Lato', sans-serif; font-size: 0.72rem;
       font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      color: #fff; background: var(--maroon); padding: 14px 32px; text-decoration: none;
+      color: #fff; background: var(--maroon); padding: 12px 28px; text-decoration: none;
       transition: background 0.15s;
     }
     .partner-cta-btn:hover { background: var(--orange); }
@@ -398,26 +399,13 @@
           <a class="partner-link" href="https://www.lsatdemon.com" target="_blank" rel="noopener">Visit lsatdemon.com →</a>
         </div>
 
-        <!-- Placeholder 2 -->
-        <div class="partner-card">
-          <div class="partner-logo-placeholder">Partner</div>
-          <p class="partner-name">Partner Organization</p>
-          <p class="partner-desc">Details about this partnership coming soon.</p>
+        <!-- Partner CTA card -->
+        <div class="partner-card partner-cta-card">
+          <p class="partner-cta-heading">Interested in partnering with VTULR?</p>
+          <p class="partner-cta-body">We welcome partnerships with organizations aligned with our mission of undergraduate legal scholarship.</p>
+          <a class="partner-cta-btn" href="/contact">Get in Touch →</a>
         </div>
 
-        <!-- Placeholder 3 -->
-        <div class="partner-card">
-          <div class="partner-logo-placeholder">Partner</div>
-          <p class="partner-name">Partner Organization</p>
-          <p class="partner-desc">Details about this partnership coming soon.</p>
-        </div>
-
-      </div>
-
-      <div class="partner-cta">
-        <p class="partner-cta-heading">Interested in partnering with VTULR?</p>
-        <p class="partner-cta-body">We welcome partnerships with organizations aligned with our mission of undergraduate legal scholarship.</p>
-        <a class="partner-cta-btn" href="/contact">Get in Touch →</a>
       </div>
 
     </div>
