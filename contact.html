@@ -346,65 +346,51 @@
     </div>
   </div>
 
-  <div class="page-header">
-    <div class="container">
-      <p class="page-overline">Get Involved</p>
-      <h1 class="page-title">Contact Us</h1>
-      <p class="page-sub">For general inquiries, membership questions, press, or partnerships.</p>
-    </div>
-  </div>
-
   <section class="contact-section">
     <div class="container">
       <div class="two-col two-col-contact">
 
         <div>
-          <p class="section-label" style="margin-bottom:24px;">Reach Us</p>
-          <div class="contact-block">
-            <p class="contact-block-role">Managing Editor</p>
-            <p class="contact-block-name">Tiya Sukhadia</p>
-            <a href="mailto:tiya@vtulr.org">tiya@vtulr.org</a>
-          </div>
-          <div class="contact-block">
-            <p class="contact-block-role">Editor-in-Chief</p>
-            <p class="contact-block-name">Catherina Newnem</p>
-            <a href="mailto:catherina@vtulr.org">catherina@vtulr.org</a>
-          </div>
-          <div style="margin-top:32px;padding-top:24px;border-top:1px solid #eee;">
-            <p style="font-family:'Lato',sans-serif;font-size:0.8rem;color:#999;">We aim to respond within 3–5 business days.</p>
-          </div>
+          <h1 class="page-title" style="margin-bottom:24px;">Contact Us.</h1>
+          <p style="font-family:'Newsreader',Georgia,serif;font-size:1.15rem;font-variation-settings:'opsz' 14,'wght' 400;color:#333;line-height:1.75;">
+            Have a question you need answered? Want to get in touch with someone directly? Please fill out this form or email us at
+            <a href="mailto:ulr.virginiatech@gmail.com" style="color:var(--maroon);font-weight:700;text-decoration:underline;">ulr.virginiatech@gmail.com</a>
+            and we will respond to your inquiry at our earliest convenience.
+          </p>
         </div>
 
         <div>
-          <p class="section-label" style="margin-bottom:24px;">Send a Message</p>
           <form class="contact-form" action="https://formspree.io/f/maqkgdkq" method="POST">
             <input type="hidden" name="_next" value="https://vtulr.org/contact-thanks.html">
             <input type="hidden" name="_subject" value="New Contact Message — VTULR">
             <input type="text" name="_gotcha" style="display:none">
 
             <div class="form-group">
-              <label class="form-label" for="name">Name <span style="color:#861F41;">*</span></label>
-              <input class="form-input" type="text" id="name" name="name" required autocomplete="name">
+              <label class="form-label" for="name">Name</label>
+              <div style="display:flex;gap:16px;">
+                <div style="flex:1;">
+                  <label class="form-label" for="first-name" style="font-weight:400;text-transform:none;letter-spacing:0;font-size:0.85rem;color:#666;margin-bottom:4px;display:block;">First Name <span style="color:#861F41;">*</span></label>
+                  <input class="form-input" type="text" id="first-name" name="first_name" required autocomplete="given-name">
+                </div>
+                <div style="flex:1;">
+                  <label class="form-label" for="last-name" style="font-weight:400;text-transform:none;letter-spacing:0;font-size:0.85rem;color:#666;margin-bottom:4px;display:block;">Last Name <span style="color:#861F41;">*</span></label>
+                  <input class="form-input" type="text" id="last-name" name="last_name" required autocomplete="family-name">
+                </div>
+              </div>
             </div>
             <div class="form-group">
               <label class="form-label" for="email">Email <span style="color:#861F41;">*</span></label>
               <input class="form-input" type="email" id="email" name="email" required autocomplete="email">
             </div>
             <div class="form-group">
-              <label class="form-label" for="subject">Subject</label>
-              <select class="form-select" id="subject" name="subject">
-                <option value="General Inquiry">General Inquiry</option>
-                <option value="Membership">Membership</option>
-                <option value="Press / Media">Press / Media</option>
-                <option value="Partnership">Partnership</option>
-                <option value="Other">Other</option>
-              </select>
+              <label class="form-label" for="subject">Subject <span style="color:#861F41;">*</span></label>
+              <input class="form-input" type="text" id="subject" name="subject" required>
             </div>
             <div class="form-group">
               <label class="form-label" for="message">Message <span style="color:#861F41;">*</span></label>
               <textarea class="form-textarea" id="message" name="message" rows="5" required></textarea>
             </div>
-            <button type="submit" class="form-submit">Send Message</button>
+            <button type="submit" class="form-submit">Submit</button>
           </form>
         </div>
 
