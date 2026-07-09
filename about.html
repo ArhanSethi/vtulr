@@ -78,16 +78,24 @@
     /* ABOUT */
     .about-section { background: #fff; padding: 8px 0 80px; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .mission-block { max-width: 640px; margin-bottom: 64px; }
     .body-para {
       font-family: 'Lato', sans-serif; font-size: 0.98rem; color: #444;
       line-height: 1.8; margin-bottom: 20px;
     }
-    .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .photo-cell {
-      aspect-ratio: 1; background: var(--offwhite);
-      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    .team-block { width: 100%; }
+    .gallery-scroll {
+      display: flex; gap: 16px; overflow-x: auto; overflow-y: hidden;
+      scroll-snap-type: x mandatory; padding-bottom: 4px; -webkit-overflow-scrolling: touch;
     }
-    .photo-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gallery-scroll::-webkit-scrollbar { height: 6px; }
+    .gallery-scroll::-webkit-scrollbar-track { background: var(--offwhite); }
+    .gallery-scroll::-webkit-scrollbar-thumb { background: var(--border); }
+    .gallery-cell {
+      flex: 0 0 auto; width: 220px; aspect-ratio: 4/5; background: var(--offwhite);
+      scroll-snap-align: start; overflow: hidden;
+    }
+    .gallery-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .photo-caption {
       font-family: 'Lato', sans-serif; font-style: italic; font-size: 0.85rem;
       color: var(--light); margin-top: 16px;
@@ -344,27 +352,28 @@
 
   <section class="about-section">
     <div class="container">
-      <div class="two-col">
 
-        <div>
-          <p class="section-label">Our Mission</p>
-          <p class="body-para">The Virginia Tech Undergraduate Law Review is a student-run publication founded in 2026 at Virginia Polytechnic Institute and State University. We exist to give undergraduate students a rigorous, serious venue to engage with the law — to research it, write about it, and push its boundaries.</p>
-          <p class="body-para">We publish original scholarship, conduct interviews with legal practitioners and scholars, and produce commentary on emerging questions of law and policy. Our editorial process is modeled on the standards of established law reviews: double-blind peer review, full Bluebook cite-checking, and a commitment to intellectual honesty.</p>
-          <p class="body-para">VTULR is open to students from every major and background. We believe legal literacy matters beyond the law school classroom, and that undergraduates have something genuine to contribute to legal discourse.</p>
-        </div>
-
-        <div>
-          <p class="section-label">Our Team</p>
-          <div class="photo-grid">
-            <div class="photo-cell"><img src="/about/photos/photo-1.jpg" alt="" onerror="this.style.display='none'"></div>
-            <div class="photo-cell"><img src="/about/photos/photo-2.jpg" alt="" onerror="this.style.display='none'"></div>
-            <div class="photo-cell"><img src="/about/photos/photo-3.jpg" alt="" onerror="this.style.display='none'"></div>
-            <div class="photo-cell"><img src="/about/photos/photo-4.jpg" alt="" onerror="this.style.display='none'"></div>
-          </div>
-          <p class="photo-caption">Photos coming soon.</p>
-        </div>
-
+      <div class="mission-block">
+        <p class="section-label">Our Mission</p>
+        <p class="body-para">The Virginia Tech Undergraduate Law Review is a student-run publication founded in 2026 at Virginia Polytechnic Institute and State University. We exist to give undergraduate students a rigorous, serious venue to engage with the law — to research it, write about it, and push its boundaries.</p>
+        <p class="body-para">We publish original scholarship, conduct interviews with legal practitioners and scholars, and produce commentary on emerging questions of law and policy. Our editorial process is modeled on the standards of established law reviews: double-blind peer review, full Bluebook cite-checking, and a commitment to intellectual honesty.</p>
+        <p class="body-para">VTULR is open to students from every major and background. We believe legal literacy matters beyond the law school classroom, and that undergraduates have something genuine to contribute to legal discourse.</p>
       </div>
+
+      <div class="team-block">
+        <p class="section-label">Our Team</p>
+        <!-- PICFLOW EMBED GOES HERE — replace .gallery-scroll contents with the Picflow embed snippet -->
+        <div class="gallery-scroll">
+          <div class="gallery-cell"></div>
+          <div class="gallery-cell"></div>
+          <div class="gallery-cell"></div>
+          <div class="gallery-cell"></div>
+          <div class="gallery-cell"></div>
+          <div class="gallery-cell"></div>
+        </div>
+        <p class="photo-caption">Photos coming soon.</p>
+      </div>
+
     </div>
   </section>
 
