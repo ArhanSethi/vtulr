@@ -140,8 +140,15 @@ export default {
 
     const accessKey = formData.get('access_key');
     let formLabel = null;
-    if (accessKey && env.CONTACT_KEY && accessKey === env.CONTACT_KEY) formLabel = 'Contact';
-    if (accessKey && env.SUBMIT_KEY && accessKey === env.SUBMIT_KEY) formLabel = 'Submission';
+    let thanksPage = null;
+    if (accessKey && env.CONTACT_KEY && accessKey === env.CONTACT_KEY) {
+      formLabel = 'Contact';
+      thanksPage = 'https://vtulr.org/contact-thanks.html';
+    }
+    if (accessKey && env.SUBMIT_KEY && accessKey === env.SUBMIT_KEY) {
+      formLabel = 'Submission';
+      thanksPage = 'https://vtulr.org/submit-thanks.html';
+    }
 
     if (!formLabel) {
       return json({ success: false, message: 'Invalid or missing access_key' }, 403, env);
@@ -149,7 +156,7 @@ export default {
 
     // Honeypot: if the hidden "_gotcha" field is filled, silently pretend success.
     if (formData.get('_gotcha')) {
-      return json({ success: true }, 200, env);
+      return Response.redirect(thanksPage, 303);
     }
 
     const fields = [];
@@ -185,6 +192,6 @@ export default {
 
     await sendEmail(env, subject, lines);
 
-    return json({ success: true }, 200, env);
+    return Response.redirect(thanksPage, 303);
   },
 };
