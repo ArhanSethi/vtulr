@@ -25,4 +25,4 @@ FROM_EMAIL = "onboarding@resend.dev"
 # access -> Allow). It gives you a URL like https://pub-xxxxxxxx.r2.dev
 # — paste that here (no trailing slash) so notification emails include a
 # working download link.
-PUBLIC_R2_URL = "https://pub-REPLACE-ME.r2.dev"
+PUBLIC_R2_URL = "https://pub-90ca2a0577d74788a5dc912d640ba417.r2.dev"
