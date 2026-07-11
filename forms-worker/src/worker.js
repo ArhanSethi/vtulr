@@ -65,10 +65,66 @@ async function sendEmail(env, subject, textLines) {
   }
 }
 
+const LANDING_PAGE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VTULR Form Backend</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, 'Lato', sans-serif;
+    background: #861F41;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+  }
+  .card { max-width: 420px; }
+  h1 {
+    font-family: Georgia, 'Newsreader', serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  p { color: rgba(255,255,255,0.75); line-height: 1.6; font-size: 0.95rem; margin-bottom: 24px; }
+  a {
+    display: inline-block;
+    color: #fff;
+    background: #E5751F;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 12px 24px;
+  }
+  a:hover { background: #c45e0e; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>VTULR Form Backend</h1>
+    <p>This is a private API endpoint that powers the Contact and Submit forms on vtulr.org. There's nothing to see here directly.</p>
+    <a href="https://vtulr.org">Go to VTULR &rarr;</a>
+  </div>
+</body>
+</html>`;
+
 export default {
   async fetch(request, env) {
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: corsHeaders(env) });
+    }
+
+    if (request.method === 'GET') {
+      return new Response(LANDING_PAGE, {
+        headers: { 'Content-Type': 'text/html; charset=UTF-8' },
+      });
     }
 
     if (request.method !== 'POST') {
