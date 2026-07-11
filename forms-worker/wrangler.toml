@@ -23,3 +23,5 @@ FROM_EMAIL = "forms@vtulr.org"
 # — paste that here (no trailing slash) so notification emails include a
 # working download link.
 PUBLIC_R2_URL = "https://pub-90ca2a0577d74788a5dc912d640ba417.r2.dev"
+# Google Apps Script Web App URL that appends rows to the Sheet.
+SHEETS_URL = "https://script.google.com/macros/s/AKfycbwxyX3IuW9sKEcyz9BhG7Kued8NQk-zO2OaNTBYcvOtQyWQoWfrKK2zRiaJmpr6Vlbg/exec"

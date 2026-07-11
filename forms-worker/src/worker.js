@@ -141,6 +141,28 @@ async function sendEmail(env, subject, { formLabel, fields, fileLinks }) {
   }
 }
 
+async function logToSheet(env, formKey, row) {
+  if (!env.SHEETS_URL || !env.SHEETS_SECRET) {
+    console.log('logToSheet skipped: missing SHEETS_URL or SHEETS_SECRET');
+    return;
+  }
+  try {
+    const res = await fetch(env.SHEETS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ secret: env.SHEETS_SECRET, form: formKey, row }),
+    });
+    const body = await res.text();
+    if (!res.ok) {
+      console.log(`Sheets log error ${res.status}: ${body}`);
+    } else {
+      console.log(`Sheets log accepted: ${body}`);
+    }
+  } catch (err) {
+    console.log(`Sheets log fetch failed: ${err}`);
+  }
+}
+
 const LANDING_PAGE = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -216,13 +238,16 @@ export default {
 
     const accessKey = formData.get('access_key');
     let formLabel = null;
+    let formKey = null;
     let thanksPage = null;
     if (accessKey && env.CONTACT_KEY && accessKey === env.CONTACT_KEY) {
       formLabel = 'Contact';
+      formKey = 'contact';
       thanksPage = 'https://vtulr.org/contact-thanks.html';
     }
     if (accessKey && env.SUBMIT_KEY && accessKey === env.SUBMIT_KEY) {
       formLabel = 'Submission';
+      formKey = 'submit';
       thanksPage = 'https://vtulr.org/submit-thanks.html';
     }
 
@@ -256,6 +281,16 @@ export default {
 
     const subject = `New ${formLabel} — VTULR (${new Date().toISOString()})`;
     await sendEmail(env, subject, { formLabel, fields, fileLinks });
+
+    const get = (key) => (fields.find((f) => f.key === key) || {}).value || '';
+    const row = formKey === 'contact'
+      ? [get('name'), get('email'), get('subject'), get('message')]
+      : [
+          get('name'), get('email'), get('university'), get('year'),
+          get('paper_title'), get('abstract'),
+          fileLinks.length ? fileLinks[0].url : '',
+        ];
+    await logToSheet(env, formKey, row);
 
     return Response.redirect(thanksPage, 303);
   },
