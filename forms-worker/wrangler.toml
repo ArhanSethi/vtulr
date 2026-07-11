@@ -1,0 +1,28 @@
+name = "vtulr-forms"
+main = "src/worker.js"
+compatibility_date = "2024-11-01"
+
+[[r2_buckets]]
+binding = "UPLOADS"
+bucket_name = "vtulr-form-uploads"
+
+# Set these with `wrangler secret put <NAME>`:
+#   RESEND_API_KEY   — your Resend API key
+#   NOTIFY_EMAIL      — where notification emails should be sent (e.g. ulr.virginiatech@gmail.com)
+#   CONTACT_KEY       — a random string you invent; the contact form must send this as access_key
+#   SUBMIT_KEY        — a random string you invent; the submit form must send this as access_key
+#
+# Set this in [vars] below (not secret, just config):
+#   ALLOWED_ORIGIN
+[vars]
+ALLOWED_ORIGIN = "https://vtulr.org"
+# Resend's free shared sender — works immediately, no DNS setup required.
+# Once you verify vtulr.org in Resend (optional, later), change this to
+# something like "forms@vtulr.org" for a branded from-address.
+FROM_EMAIL = "onboarding@resend.dev"
+# After creating the R2 bucket, enable "Public access" on it in the
+# Cloudflare dashboard (R2 -> vtulr-form-uploads -> Settings -> Public
+# access -> Allow). It gives you a URL like https://pub-xxxxxxxx.r2.dev
+# — paste that here (no trailing slash) so notification emails include a
+# working download link.
+PUBLIC_R2_URL = "https://pub-REPLACE-ME.r2.dev"
