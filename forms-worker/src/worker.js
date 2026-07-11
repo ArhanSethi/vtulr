@@ -39,11 +39,86 @@ function safeFileName(name) {
   return String(name || 'file').replace(/[^a-zA-Z0-9._-]/g, '_').slice(-120);
 }
 
-async function sendEmail(env, subject, textLines) {
+function escapeHtml(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function prettyLabel(key) {
+  return String(key)
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+function buildEmailHtml({ formLabel, fields, fileLinks }) {
+  const rows = fields.map(({ key, value }) => `
+    <tr>
+      <td style="padding:10px 16px;border-bottom:1px solid #eee;font-family:-apple-system,'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#861F41;white-space:nowrap;vertical-align:top;">${escapeHtml(prettyLabel(key))}</td>
+      <td style="padding:10px 16px;border-bottom:1px solid #eee;font-family:-apple-system,'Lato',sans-serif;font-size:14px;color:#222;line-height:1.5;">${escapeHtml(value)}</td>
+    </tr>`).join('');
+
+  const filesBlock = fileLinks.length
+    ? `<div style="margin-top:24px;">
+         <div style="font-family:-apple-system,'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#861F41;margin-bottom:10px;">Attached Files</div>
+         ${fileLinks.map((f) => `
+           <a href="${escapeHtml(f.url)}" style="display:block;font-family:-apple-system,'Lato',sans-serif;font-size:14px;color:#fff;background:#E5751F;text-decoration:none;padding:12px 16px;border-radius:4px;margin-bottom:8px;">
+             📎 ${escapeHtml(f.name)} <span style="opacity:0.85;font-size:12px;">(${f.sizeKB} KB)</span>
+           </a>`).join('')}
+       </div>`
+    : `<p style="font-family:-apple-system,'Lato',sans-serif;font-size:13px;color:#999;font-style:italic;margin-top:20px;">No files attached.</p>`;
+
+  return `<!DOCTYPE html>
+<html>
+<body style="margin:0;padding:0;background:#f5f3f1;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5f3f1;padding:32px 16px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+          <tr>
+            <td style="background:#861F41;padding:24px 28px;border-bottom:3px solid #E5751F;">
+              <div style="font-family:Georgia,'Newsreader',serif;color:#fff;font-size:20px;">Virginia Tech Undergraduate Law Review</div>
+              <div style="font-family:-apple-system,'Lato',sans-serif;color:rgba(255,255,255,0.75);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;margin-top:4px;">New ${escapeHtml(formLabel)}</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:24px 28px 8px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+                ${rows}
+              </table>
+              ${filesBlock}
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:20px 28px;background:#f9f7f5;">
+              <div style="font-family:-apple-system,'Lato',sans-serif;font-size:11px;color:#999;">Sent automatically from the vtulr.org form backend.</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+}
+
+async function sendEmail(env, subject, { formLabel, fields, fileLinks }) {
   if (!env.RESEND_API_KEY || !env.NOTIFY_EMAIL) {
     console.log('sendEmail skipped: missing RESEND_API_KEY or NOTIFY_EMAIL secret');
     return;
   }
+  const textLines = [
+    `New ${formLabel.toLowerCase()} received on vtulr.org`,
+    '',
+    ...fields.map((f) => `${prettyLabel(f.key)}: ${f.value}`),
+    '',
+    fileLinks.length
+      ? ['Files:', ...fileLinks.map((f) => `  - ${f.name} (${f.sizeKB} KB): ${f.url}`)].join('\n')
+      : 'No files attached.',
+  ];
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
@@ -55,6 +130,7 @@ async function sendEmail(env, subject, textLines) {
       to: [env.NOTIFY_EMAIL],
       subject,
       text: textLines.join('\n'),
+      html: buildEmailHtml({ formLabel, fields, fileLinks }),
     }),
   });
   const body = await res.text();
@@ -171,26 +247,15 @@ export default {
           httpMetadata: { contentType: value.type || 'application/octet-stream' },
         });
         const publicBase = env.PUBLIC_R2_URL; // e.g. https://pub-xxxx.r2.dev
-        const link = publicBase ? `${publicBase}/${key2}` : `(R2 object: ${key2} — set PUBLIC_R2_URL to get a link)`;
-        fileLinks.push(`${value.name} (${Math.round(value.size / 1024)} KB): ${link}`);
+        const url = publicBase ? `${publicBase}/${key2}` : `#r2-object-${key2}`;
+        fileLinks.push({ name: value.name, sizeKB: Math.round(value.size / 1024), url });
       } else if (typeof value === 'string' && value.trim()) {
-        fields.push(`${key}: ${value}`);
+        fields.push({ key, value });
       }
     }
 
     const subject = `New ${formLabel} — VTULR (${new Date().toISOString()})`;
-    const lines = [
-      `New ${formLabel.toLowerCase()} received on vtulr.org`,
-      '',
-      ...fields,
-    ];
-    if (fileLinks.length) {
-      lines.push('', 'Files:', ...fileLinks.map((f) => `  - ${f}`));
-    } else {
-      lines.push('', 'No files attached.');
-    }
-
-    await sendEmail(env, subject, lines);
+    await sendEmail(env, subject, { formLabel, fields, fileLinks });
 
     return Response.redirect(thanksPage, 303);
   },
