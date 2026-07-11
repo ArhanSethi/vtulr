@@ -40,8 +40,11 @@ function safeFileName(name) {
 }
 
 async function sendEmail(env, subject, textLines) {
-  if (!env.RESEND_API_KEY || !env.NOTIFY_EMAIL) return;
-  await fetch('https://api.resend.com/emails', {
+  if (!env.RESEND_API_KEY || !env.NOTIFY_EMAIL) {
+    console.log('sendEmail skipped: missing RESEND_API_KEY or NOTIFY_EMAIL secret');
+    return;
+  }
+  const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${env.RESEND_API_KEY}`,
@@ -54,6 +57,12 @@ async function sendEmail(env, subject, textLines) {
       text: textLines.join('\n'),
     }),
   });
+  const body = await res.text();
+  if (!res.ok) {
+    console.log(`Resend error ${res.status}: ${body}`);
+  } else {
+    console.log(`Resend accepted: ${body}`);
+  }
 }
 
 export default {
