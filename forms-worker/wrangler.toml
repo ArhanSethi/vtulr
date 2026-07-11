@@ -16,10 +16,7 @@ bucket_name = "vtulr-form-uploads"
 #   ALLOWED_ORIGIN
 [vars]
 ALLOWED_ORIGIN = "https://vtulr.org"
-# Resend's free shared sender — works immediately, no DNS setup required.
-# Once you verify vtulr.org in Resend (optional, later), change this to
-# something like "forms@vtulr.org" for a branded from-address.
-FROM_EMAIL = "onboarding@resend.dev"
+FROM_EMAIL = "forms@vtulr.org"
 # After creating the R2 bucket, enable "Public access" on it in the
 # Cloudflare dashboard (R2 -> vtulr-form-uploads -> Settings -> Public
 # access -> Allow). It gives you a URL like https://pub-xxxxxxxx.r2.dev
