@@ -363,23 +363,25 @@
         <div>
           <p class="section-label" style="margin-bottom:24px;">Submission Guidelines</p>
           <dl class="guideline-list">
-            <dt>Eligibility</dt>
-            <dd>Open to currently enrolled undergraduate students at any accredited college or university worldwide. Co-authored submissions are accepted.</dd>
+            <dt>Formatting Requirements</dt>
+            <dd>
+              Title must be bolded, 16 pt font. Author name must be italicized, 12 pt font. The entire article must be 12 pt font, justified alignment, and double-spaced. All section headers must be bolded. The article must include at least four sections, including an Introduction, at least two body sections, and a Conclusion.
+            </dd>
 
-            <dt>Length</dt>
-            <dd>Articles should be between 15 and 30 pages, excluding footnotes and bibliography. Shorter notes and comments (8–15 pages) are also considered.</dd>
+            <dt>Citations</dt>
+            <dd>
+              All citations must follow Bluebook format. Use footnotes only — no parenthetical citations. Footnotes must be superscript in the text, size 10 pt, appear under a bolded &ldquo;Footnotes&rdquo; section, and be formatted in Bluebook style.
+            </dd>
 
-            <dt>Citation Format</dt>
-            <dd>All submissions must use <em>The Bluebook: A Uniform System of Citation</em> (21st ed.). Submissions with inconsistent citation format will be returned without review.</dd>
+            <dt>Research Expectations</dt>
+            <dd>
+              Submissions should include a clear thesis or argument, strong academic or legal research, credible sources (cases, statutes, academic articles, government reports, etc.), and proper citation of all sources.
+            </dd>
 
-            <dt>Topics</dt>
-            <dd>We accept papers on any area of law or legal policy, including constitutional law, administrative law, criminal justice, international law, technology law, and more.</dd>
-
-            <dt>Format</dt>
-            <dd>Submit as a Word document (.docx). Double-spaced, 12pt Times New Roman, 1-inch margins. Author name and identifying information must be removed for double-blind review.</dd>
-
-            <dt>Review Process</dt>
-            <dd>All submissions undergo double-blind peer review by members of our Editorial Board. Authors will be notified of decisions on a rolling basis.</dd>
+            <dt>Submission Requirements</dt>
+            <dd>
+              Authors must submit a completed article draft, the article title, author information, a short abstract (150–250 words), and a brief explanation of the topic and argument.
+            </dd>
           </dl>
           <p class="submit-note">By submitting, you confirm that the work is original, unpublished, and not under review elsewhere.</p>
         </div>
@@ -398,35 +400,68 @@
               <input class="form-input" type="email" id="s-email" name="email" required autocomplete="email">
             </div>
             <div class="form-group">
-              <label class="form-label" for="s-university">University / Institution <span style="color:#861F41;">*</span></label>
-              <input class="form-input" type="text" id="s-university" name="university" required>
+              <label class="form-label" for="s-title">Article Title <span style="color:#861F41;">*</span></label>
+              <input class="form-input" type="text" id="s-title" name="article_title" required>
             </div>
             <div class="form-group">
-              <label class="form-label" for="s-year">Year of Study <span style="color:#861F41;">*</span></label>
-              <select class="form-select" id="s-year" name="year" required>
-                <option value="" disabled selected>Select year</option>
-                <option value="Freshman">Freshman</option>
-                <option value="Sophomore">Sophomore</option>
-                <option value="Junior">Junior</option>
-                <option value="Senior">Senior</option>
+              <label class="form-label" for="s-topic">Article Topic Area <span style="color:#861F41;">*</span></label>
+              <select class="form-select" id="s-topic" name="topic_area" required>
+                <option value="" disabled selected>Select topic area</option>
+                <option value="Constitutional Law">Constitutional Law</option>
+                <option value="Civil Rights/Social Justice">Civil Rights/Social Justice</option>
+                <option value="Criminal Law">Criminal Law</option>
+                <option value="International Law">International Law</option>
+                <option value="Comparative Law/Politics">Comparative Law/Politics</option>
+                <option value="Technology & Law">Technology &amp; Law</option>
+                <option value="Public Policy">Public Policy</option>
+                <option value="Other">Other</option>
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label" for="s-title">Paper Title <span style="color:#861F41;">*</span></label>
-              <input class="form-input" type="text" id="s-title" name="paper_title" required>
+              <label class="form-label" for="s-abstract">Article Abstract (150–250 words) <span style="color:#861F41;">*</span></label>
+              <textarea class="form-textarea" id="s-abstract" name="abstract" rows="4" required></textarea>
             </div>
             <div class="form-group">
-              <label class="form-label" for="s-abstract">Abstract <span style="color:#861F41;">*</span></label>
-              <textarea class="form-textarea" id="s-abstract" name="abstract" rows="4" placeholder="Provide a brief abstract (150–300 words)" required></textarea>
+              <label class="form-label" for="s-thesis">What is your article's main argument/thesis? <span style="color:#861F41;">*</span></label>
+              <textarea class="form-textarea" id="s-thesis" name="thesis" rows="3" required></textarea>
             </div>
             <div class="form-group">
-              <label class="form-label" for="s-file">Upload Manuscript (.docx or .pdf) <span style="color:#861F41;">*</span></label>
+              <label class="form-label">What sources does your article use? <span style="color:#861F41;">*</span></label>
+              <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
+                <div class="form-check">
+                  <input type="checkbox" id="s-src-cases" name="sources" value="Court cases">
+                  <label for="s-src-cases">Court cases</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="s-src-statutes" name="sources" value="Statutes">
+                  <label for="s-src-statutes">Statutes</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="s-src-academic" name="sources" value="Academic articles">
+                  <label for="s-src-academic">Academic articles</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="s-src-gov" name="sources" value="Government reports">
+                  <label for="s-src-gov">Government reports</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="s-src-books" name="sources" value="Books">
+                  <label for="s-src-books">Books</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="s-src-other" name="sources" value="Other">
+                  <label for="s-src-other">Other</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="s-file">Upload Article Draft <span style="color:#861F41;">*</span></label>
               <input class="form-input" type="file" id="s-file" name="attachment" accept=".doc,.docx,.pdf" required style="padding:8px 14px;">
             </div>
             <div class="form-group">
               <div class="form-check">
                 <input type="checkbox" id="s-confirm" name="confirmation" value="confirmed" required>
-                <label for="s-confirm">I confirm this work is original and not under review elsewhere.</label>
+                <label for="s-confirm">I confirm this is my original work and follows VTULR guidelines.</label>
               </div>
             </div>
             <button type="submit" class="form-submit">Submit Paper</button>

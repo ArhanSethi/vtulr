@@ -260,7 +260,7 @@ export default {
       return Response.redirect(thanksPage, 303);
     }
 
-    const fields = [];
+    const rawFields = {};
     const fileLinks = [];
 
     for (const [key, value] of formData.entries()) {
@@ -275,19 +275,23 @@ export default {
         const url = publicBase ? `${publicBase}/${key2}` : `#r2-object-${key2}`;
         fileLinks.push({ name: value.name, sizeKB: Math.round(value.size / 1024), url });
       } else if (typeof value === 'string' && value.trim()) {
-        fields.push({ key, value });
+        // Repeated keys (e.g. multiple checked "sources" checkboxes) get
+        // joined into one comma-separated value instead of duplicate rows.
+        rawFields[key] = rawFields[key] ? `${rawFields[key]}, ${value}` : value;
       }
     }
+
+    const fields = Object.entries(rawFields).map(([key, value]) => ({ key, value }));
+    const get = (key) => rawFields[key] || '';
 
     const subject = `New ${formLabel} — VTULR (${new Date().toISOString()})`;
     await sendEmail(env, subject, { formLabel, fields, fileLinks });
 
-    const get = (key) => (fields.find((f) => f.key === key) || {}).value || '';
     const row = formKey === 'contact'
       ? [get('name'), get('email'), get('subject'), get('message')]
       : [
-          get('name'), get('email'), get('university'), get('year'),
-          get('paper_title'), get('abstract'),
+          get('name'), get('email'), get('article_title'), get('topic_area'),
+          get('abstract'), get('thesis'), get('sources'),
           fileLinks.length ? fileLinks[0].url : '',
         ];
     await logToSheet(env, formKey, row);
