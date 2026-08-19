@@ -673,6 +673,77 @@
       nav { padding: 0 16px; }
 
     }
+
+    /* ── APPLY TOAST + MODAL ── */
+    .apply-toast {
+      position: fixed; bottom: 24px; right: 24px; z-index: 500;
+      width: 300px; background: #fff; border: 1px solid var(--border);
+      border-top: 3px solid var(--orange);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.16);
+      padding: 20px 20px 18px;
+      opacity: 0; transform: translateY(16px);
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .apply-toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .apply-toast-close {
+      position: absolute; top: 10px; right: 12px;
+      background: none; border: none; cursor: pointer;
+      font-size: 1.1rem; line-height: 1; color: var(--light);
+      padding: 4px;
+    }
+    .apply-toast-close:hover { color: var(--maroon); }
+    .apply-toast-heading {
+      font-family: 'Newsreader', Georgia, serif; font-size: 1.1rem; font-weight: 500;
+      font-variation-settings: 'opsz' 20, 'wght' 500; color: #111;
+      margin-bottom: 8px; padding-right: 16px; line-height: 1.3;
+    }
+    .apply-toast-body {
+      font-family: 'Lato', sans-serif; font-size: 0.82rem; color: #666;
+      line-height: 1.55; margin-bottom: 14px;
+    }
+    .apply-toast-btn {
+      display: inline-block; font-family: 'Lato', sans-serif; font-size: 0.7rem;
+      font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #fff; background: var(--maroon); border: none; cursor: pointer;
+      padding: 10px 20px; transition: background 0.15s;
+    }
+    .apply-toast-btn:hover { background: var(--orange); }
+
+    .apply-modal-overlay {
+      position: fixed; inset: 0; z-index: 600;
+      background: rgba(17,17,17,0.55);
+      display: none; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .apply-modal-overlay.open { display: flex; }
+    .apply-modal {
+      background: #fff; width: 100%; max-width: 640px;
+      max-height: 88vh; display: flex; flex-direction: column;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+    }
+    .apply-modal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 22px; border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .apply-modal-title {
+      font-family: 'Newsreader', Georgia, serif; font-size: 1.15rem; font-weight: 500;
+      font-variation-settings: 'opsz' 20, 'wght' 500; color: #111;
+    }
+    .apply-modal-close {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.4rem; line-height: 1; color: var(--light);
+    }
+    .apply-modal-close:hover { color: var(--maroon); }
+    .apply-modal-body { flex: 1; overflow: hidden; }
+    .apply-modal-body iframe { width: 100%; height: 100%; border: none; display: block; }
+
+    @media (max-width: 600px) {
+      .apply-toast { left: 16px; right: 16px; width: auto; bottom: 16px; }
+      .apply-modal-overlay { padding: 0; }
+      .apply-modal { max-width: none; max-height: 100vh; height: 100vh; }
+    }
   </style>
 </head>
 <body>
@@ -761,6 +832,30 @@
       <p class="hero-sub">VTULR is Virginia Tech's premier undergraduate legal publication. VTULR advances legal discourse by publishing print journals covering an array of legal subjects. We seek to promote original and authentic legal scholarship.</p>
     </div>
   </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       TEMPORARY: Applications Open embed. Delete this entire <section>
+       block (through the closing </section> tag below) once the
+       application cycle closes.
+       ══════════════════════════════════════════════════════════════ -->
+  <section style="background:var(--offwhite);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px 0;">
+    <div class="container">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
+        <div>
+          <span class="section-label" style="margin-bottom:4px;display:block;">Now Accepting Applications</span>
+          <p style="font-family:'Newsreader',Georgia,serif;font-size:1.3rem;color:#111;">Join the 2026–2027 Editorial Board</p>
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScw4OoZdUMafOWMmutkto7mM0h0oaALQoYvc3vV3va9I6l4OA/viewform" target="_blank" rel="noopener" style="font-family:'Lato',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--maroon);text-decoration:none;">Open in New Tab →</a>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);overflow:hidden;">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLScw4OoZdUMafOWMmutkto7mM0h0oaALQoYvc3vV3va9I6l4OA/viewform?embedded=true"
+          style="width:100%;height:640px;border:none;display:block;"
+          loading="lazy">Loading application form…</iframe>
+      </div>
+    </div>
+  </section>
+  <!-- END TEMPORARY: Applications Open embed -->
 
   <!-- BOARD PHOTO -->
   <section class="section-board">
@@ -897,6 +992,59 @@
 
     </div>
   </footer>
+
+  <!-- APPLY TOAST + MODAL -->
+  <div class="apply-toast" id="apply-toast">
+    <button class="apply-toast-close" id="apply-toast-close" aria-label="Dismiss">&times;</button>
+    <p class="apply-toast-heading">Applications are open</p>
+    <p class="apply-toast-body">We're now accepting applications for the 2026–2027 Editorial Board.</p>
+    <button class="apply-toast-btn" id="apply-toast-btn">Apply Now</button>
+  </div>
+
+  <div class="apply-modal-overlay" id="apply-modal-overlay">
+    <div class="apply-modal" onclick="event.stopPropagation()">
+      <div class="apply-modal-header">
+        <p class="apply-modal-title">Editorial Board Application</p>
+        <button class="apply-modal-close" id="apply-modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="apply-modal-body">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLScw4OoZdUMafOWMmutkto7mM0h0oaALQoYvc3vV3va9I6l4OA/viewform?embedded=true"
+          loading="lazy">Loading application form…</iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var STORAGE_KEY = 'vtulr_apply_toast_dismissed';
+      var toast = document.getElementById('apply-toast');
+      var toastClose = document.getElementById('apply-toast-close');
+      var toastBtn = document.getElementById('apply-toast-btn');
+      var modalOverlay = document.getElementById('apply-modal-overlay');
+      var modalClose = document.getElementById('apply-modal-close');
+
+      if (toast && !localStorage.getItem(STORAGE_KEY)) {
+        setTimeout(function() { toast.classList.add('show'); }, 1800);
+      }
+      function dismissToast() {
+        if (toast) toast.classList.remove('show');
+        localStorage.setItem(STORAGE_KEY, '1');
+      }
+      function openModal() {
+        if (modalOverlay) modalOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        if (modalOverlay) modalOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      if (toastClose) toastClose.addEventListener('click', dismissToast);
+      if (toastBtn) toastBtn.addEventListener('click', function() { dismissToast(); openModal(); });
+      if (modalClose) modalClose.addEventListener('click', closeModal);
+      if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+    })();
+  </script>
 
   <script>
     (function() {
