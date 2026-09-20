@@ -297,30 +297,6 @@
   </style>
 </head>
 <body>
-  <div id="TEMP-MAINTENANCE-OVERLAY" style="position:fixed;inset:0;background:#000000;z-index:2147483647;display:flex;align-items:center;justify-content:center;"><span id="TEMP-COUNTDOWN" style="font-family:'Courier New',Consolas,Menlo,monospace;color:#ff2626;font-size:1rem;letter-spacing:0.05em;"></span></div><!-- TEMP-MAINTENANCE-OVERLAY: remove this div and the script right below it to restore the site. Nothing else was changed. -->
-  <script>
-    (function() {
-      var KEY = 'vtulr_countdown_target';
-      var target = localStorage.getItem(KEY);
-      if (!target) {
-        target = Date.now() + 24 * 60 * 60 * 1000;
-        localStorage.setItem(KEY, target);
-      } else {
-        target = parseInt(target, 10);
-      }
-      var el = document.getElementById('TEMP-COUNTDOWN');
-      function pad(n) { return String(n).padStart(2, '0'); }
-      function tick() {
-        var diff = Math.max(0, target - Date.now());
-        var h = Math.floor(diff / 3600000);
-        var m = Math.floor((diff % 3600000) / 60000);
-        var s = Math.floor((diff % 60000) / 1000);
-        if (el) el.textContent = '-' + pad(h) + ':' + pad(m) + ':' + pad(s);
-      }
-      tick();
-      setInterval(tick, 1000);
-    })();
-  </script>
 
   <!-- NAV -->
   <nav>
